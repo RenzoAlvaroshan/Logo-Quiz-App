@@ -60,14 +60,38 @@
 			children = (
 				8319C1DE282025F5000AA91B /* AppDelegate.swift */,
 				8319C1E0282025F5000AA91B /* SceneDelegate.swift */,
-				8319C1E2282025F5000AA91B /* ViewController.swift */,
-				8319C1E4282025F5000AA91B /* Main.storyboard */,
+				8319C1F7282026FB000AA91B /* Model */,
+				8319C1F6282026EE000AA91B /* Controller */,
+				8319C1F5282026E0000AA91B /* View */,
 				8319C1EA282025F6000AA91B /* Assets.xcassets */,
-				8319C1EC282025F6000AA91B /* LaunchScreen.storyboard */,
 				8319C1EF282025F6000AA91B /* Info.plist */,
-				8319C1E7282025F5000AA91B /* Logo_Quiz_App.xcdatamodeld */,
 			);
 			path = "Logo Quiz App";
+			sourceTree = "<group>";
+		};
+		8319C1F5282026E0000AA91B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8319C1E4282025F5000AA91B /* Main.storyboard */,
+				8319C1EC282025F6000AA91B /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8319C1F6282026EE000AA91B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8319C1E2282025F5000AA91B /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8319C1F7282026FB000AA91B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8319C1E7282025F5000AA91B /* Logo_Quiz_App.xcdatamodeld */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
