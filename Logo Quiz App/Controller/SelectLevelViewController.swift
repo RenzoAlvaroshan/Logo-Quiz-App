@@ -12,17 +12,29 @@ class SelectLevelViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBOutlet weak var SelectLevelTable: UITableView!
     
-    var items:[level] = []
+    var data: Dictionary<Int, Level> = [:]
     
-    override func viewDidLoad() {
+    let bgColorList: [UIColor] = [ .green, .blue, .purple, .red, .orange, .brown ]
+    
+    
+    var store: UserCoreDataStore {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        return UserCoreDataStore(context: context)
+    }
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         
-        //Dummy Data
-        let level1:level = level(title: "Level1", progress: 9, maxProgress: 15, backgroundColor: .blue)
-        let level2:level = level(title: "Level1", progress: 9, maxProgress: 15, backgroundColor: .red)
-        items.append(level1)
-        items.append(level2)
+        let user = store.fetchUser()
         
+        Logo.list.forEach() { logo in
+            var level = data[logo.level] ?? Level(title: logo.level, progress: 0, maxProgress: 0, backgroundColor: .blue)
+            let isAnswered = user?.answeredQuestions?.contains(logo.name) ?? false
+            level.maxProgress += 1
+            level.progress += isAnswered ? 1 : 0
+            data[logo.level] = level
+        }
         
         let nib = UINib(nibName: "SelectLevelTableViewCell", bundle: nil)
         SelectLevelTable.register(nib, forCellReuseIdentifier: "SelectLevelTableViewCell")
@@ -31,15 +43,25 @@ class SelectLevelViewController: UIViewController, UITableViewDelegate, UITableV
                
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if (segue.identifier == "TableToCollection")
+        {
+            guard let vc = segue.destination as? LogoCollectionViewController
+            else { return }
+            vc.selectedLevel = SelectLevelTable.indexPathForSelectedRow?.row
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        items.count
+        data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SelectLevelTableViewCell", for: indexPath) as! SelectLevelTableViewCell
         
-        let tableLevel = items[indexPath.row]
+        let tableLevel = data[indexPath.row]!
         
         cell.configure(tableLevel)
         

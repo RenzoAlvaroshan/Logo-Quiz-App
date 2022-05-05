@@ -8,8 +8,9 @@
 import Foundation
 import UIKit
 
-struct level{
-    var title: String
+struct Level
+{
+    var title: Int
     var progress: Int
     var maxProgress: Int
     var backgroundColor: UIColor

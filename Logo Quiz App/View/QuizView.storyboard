@@ -56,6 +56,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="hintButton" destination="1Ex-MD-h2H" id="b9W-47-Dvg"/>
                         <outlet property="imageView" destination="cwq-fH-x9B" id="f7n-26-dPI"/>
                         <outlet property="scoreLabel" destination="h1N-A1-eXE" id="guE-14-jKq"/>
                         <outlet property="textField" destination="kIf-O3-Wee" id="Uz0-r7-vOY"/>

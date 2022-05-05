@@ -23,8 +23,9 @@ class SelectLevelTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure(_ LevelModel: level){
-        LevelLabel.text = LevelModel.title
+    func configure(_ LevelModel: Level)
+    {
+        LevelLabel.text = String(LevelModel.title)
         let ProgressText = "\(LevelModel.progress)/\(LevelModel.maxProgress)"
         
         ProgressLabel.text = ProgressText
@@ -32,7 +33,6 @@ class SelectLevelTableViewCell: UITableViewCell {
         let PercentText = "\(PercentComplete)%"
         print(PercentText)
         PercentageCompletedLabel.text = PercentText
-        
         
     }
 }

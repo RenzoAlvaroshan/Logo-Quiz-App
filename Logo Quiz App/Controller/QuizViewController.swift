@@ -17,8 +17,9 @@ class QuizViewController: UIViewController {
     @IBOutlet var scoreLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var textField: UITextField!
-
-    var answerOne = "Telkom"
+    @IBOutlet weak var hintButton: UIButton!
+    
+    var logo: Logo?
     
     var characterNumber = 0
     
@@ -34,6 +35,16 @@ class QuizViewController: UIViewController {
         updateScoreLabel()
         
         textField.addTarget(self, action: #selector(checkAnswer), for: .editingChanged)
+        
+        reset()
+        
+        let isAnswered = store.fetchUser()?.answeredQuestions?.contains(logo!.name) ?? false
+        if (isAnswered)
+        {
+            hintButton.isHidden = true
+            textField.text = logo?.name
+            textField.isUserInteractionEnabled = false
+        }
     }
     
     func updateScoreLabel() {
@@ -43,11 +54,11 @@ class QuizViewController: UIViewController {
     func reset() {
         textField.text = ""
         characterNumber = 0
-        imageView.image = UIImage(named: "TELKOM")
+        imageView.image = UIImage(named: logo!.imageUrl)
     }
 
     @objc func checkAnswer() {
-        let isCorrectAnswer = textField.text == answerOne
+        let isCorrectAnswer = textField.text == logo!.name
         
         if isCorrectAnswer {
             imageView.image = UIImage(systemName: "checkmark")
@@ -59,15 +70,15 @@ class QuizViewController: UIViewController {
             updateScoreLabel()
             
             // Add answered question
-            store.addAnsweredQuestion(answerOne)
+            store.addAnsweredQuestion(logo!.name)
         }
     }
     
     @IBAction func buttonTapped(_ sender: UIButton) {
         if characterNumber == 0 {
-            textField.text = answerOne[characterNumber]
+            textField.text = logo!.name[characterNumber]
         } else {
-            textField.text! += answerOne[characterNumber]
+            textField.text! += logo!.name[characterNumber]
         }
         
         characterNumber += 1

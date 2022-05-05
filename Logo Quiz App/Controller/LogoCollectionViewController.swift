@@ -6,7 +6,10 @@ class LogoCollectionViewController: UIViewController
 {
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
-    let dataSource = [AnyObject?](repeating: nil, count: 100)
+    var selectedLevel: Int?
+    
+    var dataSource: [Logo] = []
+    var selectedLogo: Logo?
     
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -19,10 +22,18 @@ class LogoCollectionViewController: UIViewController
             UINib(nibName: "LogoCollectionViewCell", bundle: nil),
             forCellWithReuseIdentifier: reuseIdentifier
         )
+        
+        Logo.list.forEach({ if ($0.level == selectedLevel) { dataSource.append($0) } })
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
+        if (segue.identifier == "goToQuiz")
+        {
+            guard let vc = segue.destination as? QuizViewController
+            else { return }
+            vc.logo = selectedLogo
+        }
     }
 }
 
@@ -45,7 +56,8 @@ extension LogoCollectionViewController: UICollectionViewDataSource
             withReuseIdentifier:reuseIdentifier,
             for: indexPath
         ) as! LogoCollectionViewCell
-        
+        let assetImageURL = dataSource[indexPath.row].imageUrl
+        cell.image = UIImage(named: assetImageURL)
         return cell
     }
 }
@@ -55,9 +67,7 @@ extension LogoCollectionViewController: UICollectionViewDelegate
 {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
-        let data = dataSource[indexPath.row]
-        print("selected: \(indexPath.row)")
-        
+        selectedLogo = dataSource[indexPath.row]
         performSegue(withIdentifier: "goToQuiz", sender: self)
     }
 }
