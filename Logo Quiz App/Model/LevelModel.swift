@@ -6,3 +6,11 @@
 //
 
 import Foundation
+import UIKit
+
+struct level{
+    var title: String
+    var progress: Int
+    var maxProgress: Int
+    var backgroundColor: UIColor
+}
