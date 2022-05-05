@@ -21,6 +21,8 @@
 		83EFEBF728240F48009B8A2A /* QuizView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83EFEBF628240F48009B8A2A /* QuizView.storyboard */; };
 		83EFEBF928240FB0009B8A2A /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EFEBF828240FB0009B8A2A /* QuizViewController.swift */; };
 		83EFEBFB28240FCD009B8A2A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EFEBFA28240FCD009B8A2A /* Extensions.swift */; };
+		A141AD67282416AA00DD2270 /* Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A141AD66282416AA00DD2270 /* Logo.swift */; };
+		A141AD712824199200DD2270 /* UserCoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A141AD702824199200DD2270 /* UserCoreDataStore.swift */; };
 		B5338EB12822689E00DF53A1 /* SelectLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5338EB02822689E00DF53A1 /* SelectLevelViewController.swift */; };
 		B5338EB428226C2400DF53A1 /* SelectLevelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5338EB228226C2400DF53A1 /* SelectLevelTableViewCell.swift */; };
 		B5338EB528226C2400DF53A1 /* SelectLevelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5338EB328226C2400DF53A1 /* SelectLevelTableViewCell.xib */; };
@@ -45,6 +47,8 @@
 		83EFEBF628240F48009B8A2A /* QuizView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QuizView.storyboard; sourceTree = "<group>"; };
 		83EFEBF828240FB0009B8A2A /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		83EFEBFA28240FCD009B8A2A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A141AD66282416AA00DD2270 /* Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logo.swift; sourceTree = "<group>"; };
+		A141AD702824199200DD2270 /* UserCoreDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoreDataStore.swift; sourceTree = "<group>"; };
 		B5338EB02822689E00DF53A1 /* SelectLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLevelViewController.swift; sourceTree = "<group>"; };
 		B5338EB228226C2400DF53A1 /* SelectLevelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLevelTableViewCell.swift; sourceTree = "<group>"; };
 		B5338EB328226C2400DF53A1 /* SelectLevelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectLevelTableViewCell.xib; sourceTree = "<group>"; };
@@ -126,6 +130,8 @@
 				8319C1E7282025F5000AA91B /* Logo_Quiz_App.xcdatamodeld */,
 				B5338EB628226D2600DF53A1 /* LevelModel.swift */,
 				83EFEBFA28240FCD009B8A2A /* Extensions.swift */,
+				A141AD66282416AA00DD2270 /* Logo.swift */,
+				A141AD702824199200DD2270 /* UserCoreDataStore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -212,10 +218,12 @@
 				B5338EB12822689E00DF53A1 /* SelectLevelViewController.swift in Sources */,
 				3FEF221528224AB9000A800B /* LogoCollectionViewCell.swift in Sources */,
 				B5338EB428226C2400DF53A1 /* SelectLevelTableViewCell.swift in Sources */,
+				A141AD712824199200DD2270 /* UserCoreDataStore.swift in Sources */,
 				8319C1DF282025F5000AA91B /* AppDelegate.swift in Sources */,
 				B5338EB728226D2600DF53A1 /* LevelModel.swift in Sources */,
 				8319C1E1282025F5000AA91B /* SceneDelegate.swift in Sources */,
 				83EFEBFB28240FCD009B8A2A /* Extensions.swift in Sources */,
+				A141AD67282416AA00DD2270 /* Logo.swift in Sources */,
 				8319C1E9282025F5000AA91B /* Logo_Quiz_App.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
