@@ -47,5 +47,9 @@ class SelectLevelViewController: UIViewController, UITableViewDelegate, UITableV
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "TableToCollection", sender: self)
+    }
 
 }
