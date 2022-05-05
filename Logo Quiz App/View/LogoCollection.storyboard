@@ -64,11 +64,22 @@
                     <connections>
                         <outlet property="collectionView" destination="8WV-N7-e2O" id="XLU-Na-Dac"/>
                         <outlet property="headerLabel" destination="eLa-rE-bzx" id="2Vy-jB-xFw"/>
+                        <segue destination="LfL-44-I4s" kind="show" identifier="goToQuiz" id="szw-rP-5Sn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Vf-yp-409" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-770.76923076923072" y="33.412322274881518"/>
+        </scene>
+        <!--QuizView-->
+        <scene sceneID="o3O-H7-S9u">
+            <objects>
+                <viewControllerPlaceholder storyboardName="QuizView" id="LfL-44-I4s" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="adt-iP-Xtn"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UpI-IZ-FNv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-159" y="33"/>
         </scene>
     </scenes>
     <resources>

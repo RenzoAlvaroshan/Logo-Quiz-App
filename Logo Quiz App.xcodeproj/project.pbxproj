@@ -18,6 +18,9 @@
 		8319C1E9282025F5000AA91B /* Logo_Quiz_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8319C1E7282025F5000AA91B /* Logo_Quiz_App.xcdatamodeld */; };
 		8319C1EB282025F6000AA91B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8319C1EA282025F6000AA91B /* Assets.xcassets */; };
 		8319C1EE282025F6000AA91B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8319C1EC282025F6000AA91B /* LaunchScreen.storyboard */; };
+		83EFEBF728240F48009B8A2A /* QuizView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83EFEBF628240F48009B8A2A /* QuizView.storyboard */; };
+		83EFEBF928240FB0009B8A2A /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EFEBF828240FB0009B8A2A /* QuizViewController.swift */; };
+		83EFEBFB28240FCD009B8A2A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EFEBFA28240FCD009B8A2A /* Extensions.swift */; };
 		B5338EB12822689E00DF53A1 /* SelectLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5338EB02822689E00DF53A1 /* SelectLevelViewController.swift */; };
 		B5338EB428226C2400DF53A1 /* SelectLevelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5338EB228226C2400DF53A1 /* SelectLevelTableViewCell.swift */; };
 		B5338EB528226C2400DF53A1 /* SelectLevelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5338EB328226C2400DF53A1 /* SelectLevelTableViewCell.xib */; };
@@ -39,6 +42,9 @@
 		8319C1EA282025F6000AA91B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8319C1ED282025F6000AA91B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8319C1EF282025F6000AA91B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83EFEBF628240F48009B8A2A /* QuizView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QuizView.storyboard; sourceTree = "<group>"; };
+		83EFEBF828240FB0009B8A2A /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
+		83EFEBFA28240FCD009B8A2A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B5338EB02822689E00DF53A1 /* SelectLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLevelViewController.swift; sourceTree = "<group>"; };
 		B5338EB228226C2400DF53A1 /* SelectLevelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLevelTableViewCell.swift; sourceTree = "<group>"; };
 		B5338EB328226C2400DF53A1 /* SelectLevelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectLevelTableViewCell.xib; sourceTree = "<group>"; };
@@ -96,6 +102,7 @@
 				8319C1EC282025F6000AA91B /* LaunchScreen.storyboard */,
 				B5338EB8282272C700DF53A1 /* SelectLevel.storyboard */,
 				B5338EB328226C2400DF53A1 /* SelectLevelTableViewCell.xib */,
+				83EFEBF628240F48009B8A2A /* QuizView.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -108,6 +115,7 @@
 				8319C1E2282025F5000AA91B /* ViewController.swift */,
 				B5338EB02822689E00DF53A1 /* SelectLevelViewController.swift */,
 				B5338EB228226C2400DF53A1 /* SelectLevelTableViewCell.swift */,
+				83EFEBF828240FB0009B8A2A /* QuizViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -117,6 +125,7 @@
 			children = (
 				8319C1E7282025F5000AA91B /* Logo_Quiz_App.xcdatamodeld */,
 				B5338EB628226D2600DF53A1 /* LevelModel.swift */,
+				83EFEBFA28240FCD009B8A2A /* Extensions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -185,6 +194,7 @@
 				8319C1E6282025F5000AA91B /* Main.storyboard in Resources */,
 				3FEF221128224AAA000A800B /* LogoCollectionViewCell.xib in Resources */,
 				B5338EB528226C2400DF53A1 /* SelectLevelTableViewCell.xib in Resources */,
+				83EFEBF728240F48009B8A2A /* QuizView.storyboard in Resources */,
 				B5338EB9282272C700DF53A1 /* SelectLevel.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8319C1E3282025F5000AA91B /* ViewController.swift in Sources */,
+				83EFEBF928240FB0009B8A2A /* QuizViewController.swift in Sources */,
 				3FEF221628224AB9000A800B /* LogoCollectionViewController.swift in Sources */,
 				B5338EB12822689E00DF53A1 /* SelectLevelViewController.swift in Sources */,
 				3FEF221528224AB9000A800B /* LogoCollectionViewCell.swift in Sources */,
@@ -204,6 +215,7 @@
 				8319C1DF282025F5000AA91B /* AppDelegate.swift in Sources */,
 				B5338EB728226D2600DF53A1 /* LevelModel.swift in Sources */,
 				8319C1E1282025F5000AA91B /* SceneDelegate.swift in Sources */,
+				83EFEBFB28240FCD009B8A2A /* Extensions.swift in Sources */,
 				8319C1E9282025F5000AA91B /* Logo_Quiz_App.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

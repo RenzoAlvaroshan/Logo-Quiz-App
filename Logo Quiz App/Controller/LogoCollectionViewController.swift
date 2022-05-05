@@ -57,6 +57,8 @@ extension LogoCollectionViewController: UICollectionViewDelegate
     {
         let data = dataSource[indexPath.row]
         print("selected: \(indexPath.row)")
+        
+        performSegue(withIdentifier: "goToQuiz", sender: self)
     }
 }
 
