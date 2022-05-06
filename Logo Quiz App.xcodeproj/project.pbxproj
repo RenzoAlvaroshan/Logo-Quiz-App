@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F09F75B282548AD005C70F0 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F09F75A282548AD005C70F0 /* UIColor+Extension.swift */; };
 		3FEF221128224AAA000A800B /* LogoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FEF220F28224AAA000A800B /* LogoCollectionViewCell.xib */; };
 		3FEF221228224AAA000A800B /* LogoCollection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FEF221028224AAA000A800B /* LogoCollection.storyboard */; };
 		3FEF221528224AB9000A800B /* LogoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEF221328224AB9000A800B /* LogoCollectionViewCell.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F09F75A282548AD005C70F0 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		3FEF220F28224AAA000A800B /* LogoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogoCollectionViewCell.xib; sourceTree = "<group>"; };
 		3FEF221028224AAA000A800B /* LogoCollection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LogoCollection.storyboard; sourceTree = "<group>"; };
 		3FEF221328224AB9000A800B /* LogoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			children = (
 				8319C1DE282025F5000AA91B /* AppDelegate.swift */,
 				8319C1E0282025F5000AA91B /* SceneDelegate.swift */,
+				3F09F75A282548AD005C70F0 /* UIColor+Extension.swift */,
 				8319C1F7282026FB000AA91B /* Model */,
 				8319C1F6282026EE000AA91B /* Controller */,
 				8319C1F5282026E0000AA91B /* View */,
@@ -219,6 +222,7 @@
 				3FEF221528224AB9000A800B /* LogoCollectionViewCell.swift in Sources */,
 				B5338EB428226C2400DF53A1 /* SelectLevelTableViewCell.swift in Sources */,
 				A141AD712824199200DD2270 /* UserCoreDataStore.swift in Sources */,
+				3F09F75B282548AD005C70F0 /* UIColor+Extension.swift in Sources */,
 				8319C1DF282025F5000AA91B /* AppDelegate.swift in Sources */,
 				B5338EB728226D2600DF53A1 /* LevelModel.swift in Sources */,
 				8319C1E1282025F5000AA91B /* SceneDelegate.swift in Sources */,

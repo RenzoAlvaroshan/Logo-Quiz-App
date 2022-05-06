@@ -9,9 +9,13 @@ class LogoCollectionViewController: UIViewController
     var selectedLevel: Int?
     
     var dataSource: [Logo] = []
-    var selectedLogo: Logo?
+    var selectIndexPath: IndexPath!
     
-    @IBOutlet weak var headerLabel: UILabel!
+    let managedUser: ManagedUser? = {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        return UserCoreDataStore(context: context).fetchUser()
+    }()
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad()
@@ -23,7 +27,9 @@ class LogoCollectionViewController: UIViewController
             forCellWithReuseIdentifier: reuseIdentifier
         )
         
-        Logo.list.forEach({ if ($0.level == selectedLevel) { dataSource.append($0) } })
+        collectionView.collectionViewLayout = configureLayout()
+        
+        dataSource = Logo.list.filter({ $0.level == selectedLevel })
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
@@ -32,8 +38,29 @@ class LogoCollectionViewController: UIViewController
         {
             guard let vc = segue.destination as? QuizViewController
             else { return }
-            vc.logo = selectedLogo
+            vc.logo = dataSource[selectIndexPath.row]
+            vc.delegate = self
         }
+    }
+    
+    func configureLayout() -> UICollectionViewCompositionalLayout
+    {
+        let itemPerRow: CGFloat = 3
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1/itemPerRow),
+            heightDimension: .fractionalHeight(1)
+        )
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+        
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: itemSize.widthDimension
+        )
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        
+        let section = NSCollectionLayoutSection(group: group)
+        return UICollectionViewCompositionalLayout(section: section)
     }
 }
 
@@ -52,12 +79,22 @@ extension LogoCollectionViewController: UICollectionViewDataSource
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
+        let data        = dataSource[indexPath.row]
+        let isAnswered  = managedUser?.answeredQuestions?.contains(data.name) ?? false
+        
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier:reuseIdentifier,
             for: indexPath
         ) as! LogoCollectionViewCell
-        let assetImageURL = dataSource[indexPath.row].imageUrl
-        cell.image = UIImage(named: assetImageURL)
+        
+        cell.image = UIImage(named: data.imageUrl)
+        cell.indicatorImageView.tintColor = .appGreen
+        cell.indicatorImageView.isHidden = !isAnswered
+        
+        cell.layer.cornerRadius = 8
+        cell.layer.borderWidth = isAnswered ? 2 : 1
+        cell.layer.borderColor = isAnswered ? UIColor.appAccent.cgColor : UIColor.gray.cgColor
+        
         return cell
     }
 }
@@ -67,20 +104,16 @@ extension LogoCollectionViewController: UICollectionViewDelegate
 {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
-        selectedLogo = dataSource[indexPath.row]
+        selectIndexPath = indexPath
         performSegue(withIdentifier: "goToQuiz", sender: self)
     }
 }
 
-// MARK: UICollectionViewDelegateFlowLayout
-extension LogoCollectionViewController: UICollectionViewDelegateFlowLayout
+// MARK: QuizViewControllerDelegate
+extension LogoCollectionViewController: QuizViewControllerDelegate
 {
-    // this will set the cell size programmatically based on collection view size
-    // collection view flow layout from storyboard will override this if estimate size doesn't set to none!
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
+    func onCorrectAnswer()
     {
-        let cellsAcross: CGFloat = 3
-        let dim = collectionView.bounds.width / cellsAcross - collectionView.bounds.width / 40
-        return CGSize(width: dim, height: dim)
+        collectionView.reloadItems(at: [selectIndexPath])
     }
 }

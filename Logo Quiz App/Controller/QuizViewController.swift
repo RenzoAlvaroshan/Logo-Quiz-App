@@ -12,12 +12,21 @@ import UIKit
 // - Button hint dihapus
 // - Munculin logo aslinya
 // Cek dari store.fetchUser()?.answeredQuestions?.contains("nama logonya")
-class QuizViewController: UIViewController {
+
+@objc protocol QuizViewControllerDelegate
+{
+    @objc optional func onCorrectAnswer()
+}
+
+class QuizViewController: UIViewController
+{
     
     @IBOutlet var scoreLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var textField: UITextField!
     @IBOutlet weak var hintButton: UIButton!
+    
+    weak var delegate: QuizViewControllerDelegate?
     
     var logo: Logo?
     
@@ -71,6 +80,8 @@ class QuizViewController: UIViewController {
             
             // Add answered question
             store.addAnsweredQuestion(logo!.name)
+            
+            delegate?.onCorrectAnswer?()
         }
     }
     

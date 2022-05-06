@@ -16,7 +16,6 @@ class SelectLevelViewController: UIViewController, UITableViewDelegate, UITableV
     
     let bgColorList: [UIColor] = [ .green, .blue, .purple, .red, .orange, .brown ]
     
-    
     var store: UserCoreDataStore {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         return UserCoreDataStore(context: context)
@@ -29,7 +28,7 @@ class SelectLevelViewController: UIViewController, UITableViewDelegate, UITableV
         let user = store.fetchUser()
         
         Logo.list.forEach() { logo in
-            var level = data[logo.level] ?? Level(title: logo.level, progress: 0, maxProgress: 0, backgroundColor: .blue)
+            var level = data[logo.level] ?? Level(title: logo.level, progress: 0, maxProgress: 0, backgroundColor: .white)
             let isAnswered = user?.answeredQuestions?.contains(logo.name) ?? false
             level.maxProgress += 1
             level.progress += isAnswered ? 1 : 0

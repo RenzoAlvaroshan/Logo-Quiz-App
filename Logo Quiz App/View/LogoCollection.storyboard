@@ -16,24 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sKn-RD-o2P">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="94"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Header" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLa-rE-bzx">
-                                        <rect key="frame" x="167" y="57" width="56" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBlueColor"/>
-                                <constraints>
-                                    <constraint firstItem="eLa-rE-bzx" firstAttribute="centerX" secondItem="sKn-RD-o2P" secondAttribute="centerX" id="9Vx-Zf-hOR"/>
-                                    <constraint firstAttribute="bottom" secondItem="eLa-rE-bzx" secondAttribute="bottom" constant="16" id="uEL-xB-HAF"/>
-                                </constraints>
-                            </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BE6-o3-cVx">
+                                <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="pyU-TD-LYj"/>
+                                </items>
+                            </navigationBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8WV-N7-e2O">
-                                <rect key="frame" x="0.0" y="94" width="390" height="716"/>
+                                <rect key="frame" x="0.0" y="88" width="390" height="722"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="im6-WQ-AbN">
                                     <size key="itemSize" width="128" height="128"/>
@@ -51,19 +41,17 @@
                         <viewLayoutGuide key="safeArea" id="7nJ-rt-1xB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="8WV-N7-e2O" firstAttribute="top" secondItem="sKn-RD-o2P" secondAttribute="bottom" id="3Jn-vh-tBQ"/>
                             <constraint firstItem="8WV-N7-e2O" firstAttribute="trailing" secondItem="7nJ-rt-1xB" secondAttribute="trailing" id="92j-vb-ayN"/>
-                            <constraint firstItem="7nJ-rt-1xB" firstAttribute="top" secondItem="sKn-RD-o2P" secondAttribute="bottom" constant="-50" id="Acl-3Z-cFb"/>
-                            <constraint firstItem="sKn-RD-o2P" firstAttribute="top" secondItem="cSy-mD-GM1" secondAttribute="top" id="AnU-Ai-lGw"/>
-                            <constraint firstItem="sKn-RD-o2P" firstAttribute="leading" secondItem="7nJ-rt-1xB" secondAttribute="leading" id="Cho-Hp-1Fk"/>
+                            <constraint firstItem="BE6-o3-cVx" firstAttribute="trailing" secondItem="7nJ-rt-1xB" secondAttribute="trailing" id="LIf-Eo-4y3"/>
+                            <constraint firstItem="8WV-N7-e2O" firstAttribute="top" secondItem="BE6-o3-cVx" secondAttribute="bottom" id="OXi-CG-kCt"/>
                             <constraint firstItem="8WV-N7-e2O" firstAttribute="leading" secondItem="7nJ-rt-1xB" secondAttribute="leading" id="Qth-0d-MKV"/>
-                            <constraint firstItem="7nJ-rt-1xB" firstAttribute="trailing" secondItem="sKn-RD-o2P" secondAttribute="trailing" id="aa6-Sb-u29"/>
+                            <constraint firstItem="BE6-o3-cVx" firstAttribute="leading" secondItem="7nJ-rt-1xB" secondAttribute="leading" id="RHh-Aq-Xfc"/>
                             <constraint firstItem="8WV-N7-e2O" firstAttribute="bottom" secondItem="7nJ-rt-1xB" secondAttribute="bottom" id="jI1-BB-v1N"/>
+                            <constraint firstItem="BE6-o3-cVx" firstAttribute="top" secondItem="7nJ-rt-1xB" secondAttribute="top" id="pne-KM-QMX"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="8WV-N7-e2O" id="XLU-Na-Dac"/>
-                        <outlet property="headerLabel" destination="eLa-rE-bzx" id="2Vy-jB-xFw"/>
                         <segue destination="LfL-44-I4s" kind="show" identifier="goToQuiz" id="szw-rP-5Sn"/>
                     </connections>
                 </viewController>
@@ -85,9 +73,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
