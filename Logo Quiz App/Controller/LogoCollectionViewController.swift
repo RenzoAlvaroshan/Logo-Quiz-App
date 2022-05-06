@@ -21,6 +21,7 @@ class LogoCollectionViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.title = "Level \(selectedLevel!)"
 
         collectionView.register(
             UINib(nibName: "LogoCollectionViewCell", bundle: nil),

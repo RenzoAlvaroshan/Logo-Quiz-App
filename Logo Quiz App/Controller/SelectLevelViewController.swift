@@ -7,9 +7,8 @@
 
 import UIKit
 
-class SelectLevelViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    
+class SelectLevelViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
+{
     @IBOutlet weak var SelectLevelTable: UITableView!
     
     var data: Dictionary<Int, Level> = [:]
@@ -24,6 +23,7 @@ class SelectLevelViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.title = "Select Level"
         
         let user = store.fetchUser()
         

@@ -40,6 +40,7 @@ class QuizViewController: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Guess The Logo"
         
         updateScoreLabel()
         
