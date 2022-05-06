@@ -16,14 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BE6-o3-cVx">
-                                <rect key="frame" x="0.0" y="44" width="390" height="44"/>
-                                <items>
-                                    <navigationItem title="Title" id="pyU-TD-LYj"/>
-                                </items>
-                            </navigationBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8WV-N7-e2O">
-                                <rect key="frame" x="0.0" y="88" width="390" height="722"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="im6-WQ-AbN">
                                     <size key="itemSize" width="128" height="128"/>
@@ -42,12 +36,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="8WV-N7-e2O" firstAttribute="trailing" secondItem="7nJ-rt-1xB" secondAttribute="trailing" id="92j-vb-ayN"/>
-                            <constraint firstItem="BE6-o3-cVx" firstAttribute="trailing" secondItem="7nJ-rt-1xB" secondAttribute="trailing" id="LIf-Eo-4y3"/>
-                            <constraint firstItem="8WV-N7-e2O" firstAttribute="top" secondItem="BE6-o3-cVx" secondAttribute="bottom" id="OXi-CG-kCt"/>
                             <constraint firstItem="8WV-N7-e2O" firstAttribute="leading" secondItem="7nJ-rt-1xB" secondAttribute="leading" id="Qth-0d-MKV"/>
-                            <constraint firstItem="BE6-o3-cVx" firstAttribute="leading" secondItem="7nJ-rt-1xB" secondAttribute="leading" id="RHh-Aq-Xfc"/>
                             <constraint firstItem="8WV-N7-e2O" firstAttribute="bottom" secondItem="7nJ-rt-1xB" secondAttribute="bottom" id="jI1-BB-v1N"/>
-                            <constraint firstItem="BE6-o3-cVx" firstAttribute="top" secondItem="7nJ-rt-1xB" secondAttribute="top" id="pne-KM-QMX"/>
+                            <constraint firstItem="8WV-N7-e2O" firstAttribute="top" secondItem="7nJ-rt-1xB" secondAttribute="top" id="zFM-Yq-DXM"/>
                         </constraints>
                     </view>
                     <connections>

@@ -44,7 +44,7 @@ class SelectLevelViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if (segue.identifier == "TableToCollection")
+        if (segue.identifier == "goToCollection")
         {
             guard let vc = segue.destination as? LogoCollectionViewController
             else { return }
@@ -70,7 +70,7 @@ class SelectLevelViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "TableToCollection", sender: self)
+        self.performSegue(withIdentifier: "goToCollection", sender: self)
     }
 
 }

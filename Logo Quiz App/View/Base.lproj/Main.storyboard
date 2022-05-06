@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3cd-Te-n74">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -8,25 +8,106 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--SelectLevel-->
+        <scene sceneID="6U2-C2-bKD">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Logo_Quiz_App" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewControllerPlaceholder storyboardName="SelectLevel" id="zVz-j3-9Lc" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Select Level" id="CSx-lm-Mhw"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qvr-mL-wKE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2685" y="23"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="bjo-O7-xDe">
+            <objects>
+                <viewController id="nux-ef-5FJ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sOd-VI-tzi">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H78-Lj-YKg">
+                                <rect key="frame" x="20" y="628.33333333333337" width="350" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="e88-FL-Jx6"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Let's Play!">
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" red="0.97650796179999999" green="0.80609846119999995" blue="0.43509876730000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="zVz-j3-9Lc" kind="show" id="ubd-Pn-BpE"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guess how much do you know about Indonesian logos name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJk-BO-oUc">
+                                <rect key="frame" x="20" y="506.33333333333326" width="350" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logopedia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hth-7J-y5A">
+                                <rect key="frame" x="117.66666666666667" y="445.66666666666669" width="154.66666666666663" height="40.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="7wb-LO-dv9">
+                                <rect key="frame" x="45" y="104.66666666666666" width="300" height="300.66666666666669"/>
+                                <color key="tintColor" red="0.97650796179999999" green="0.80609846119999995" blue="0.43509876730000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="KoA-H9-SNb"/>
+                                    <constraint firstAttribute="width" constant="300" id="rh9-09-Qjc"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8HW-bl-v3R"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Hth-7J-y5A" firstAttribute="top" secondItem="7wb-LO-dv9" secondAttribute="bottom" constant="40" id="2Rz-X9-vrs"/>
+                            <constraint firstItem="Hth-7J-y5A" firstAttribute="centerY" secondItem="sOd-VI-tzi" secondAttribute="centerY" constant="44" id="6R7-hl-iuX"/>
+                            <constraint firstItem="H78-Lj-YKg" firstAttribute="top" secondItem="RJk-BO-oUc" secondAttribute="bottom" constant="74" id="9TV-8e-Rab"/>
+                            <constraint firstItem="RJk-BO-oUc" firstAttribute="top" secondItem="Hth-7J-y5A" secondAttribute="bottom" constant="20" id="C2C-Od-Ojq"/>
+                            <constraint firstItem="Hth-7J-y5A" firstAttribute="centerX" secondItem="sOd-VI-tzi" secondAttribute="centerX" id="GMW-go-zmq"/>
+                            <constraint firstAttribute="trailing" secondItem="RJk-BO-oUc" secondAttribute="trailing" constant="20" id="RR6-Ef-vyQ"/>
+                            <constraint firstItem="H78-Lj-YKg" firstAttribute="leading" secondItem="8HW-bl-v3R" secondAttribute="leading" constant="20" id="Rpm-fn-9t5"/>
+                            <constraint firstItem="8HW-bl-v3R" firstAttribute="trailing" secondItem="H78-Lj-YKg" secondAttribute="trailing" constant="20" id="Tah-HS-SWI"/>
+                            <constraint firstItem="RJk-BO-oUc" firstAttribute="leading" secondItem="8HW-bl-v3R" secondAttribute="leading" constant="20" id="Zli-cF-czb"/>
+                            <constraint firstItem="7wb-LO-dv9" firstAttribute="centerX" secondItem="sOd-VI-tzi" secondAttribute="centerX" id="b9W-Jt-f45"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Xc6-hC-HQZ"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ifX-xh-S4U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="35" y="94"/>
+            <point key="canvasLocation" x="1925" y="23"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="WTH-LS-en2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3cd-Te-n74" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JdW-Wk-XMH">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nux-ef-5FJ" kind="relationship" relationship="rootViewController" id="tsY-pb-rTG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bjA-bC-AIc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="825" y="23"/>
         </scene>
     </scenes>
     <resources>
+        <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
