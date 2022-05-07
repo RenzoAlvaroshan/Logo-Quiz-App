@@ -9,6 +9,8 @@ import UIKit
 
 class SelectLevelViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+    
     @IBOutlet weak var SelectLevelTable: UITableView!
     
     var data: Dictionary<Int, Level> = [:]
@@ -24,8 +26,11 @@ class SelectLevelViewController: UIViewController, UITableViewDelegate, UITableV
     {
         super.viewDidLoad()
         self.title = "Select Level"
-        
         let user = store.fetchUser()
+        
+        let view = CoinView(frame: CGRect(x: 0, y: 0, width: 72, height: 27))
+        view.coinValue = Int(user?.score ?? 0)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: view)
         
         Logo.list.forEach() { logo in
             var level = data[logo.level] ?? Level(title: logo.level, progress: 0, maxProgress: 0, backgroundColor: .white)

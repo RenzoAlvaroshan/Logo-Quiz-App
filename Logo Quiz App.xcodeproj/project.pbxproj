@@ -8,13 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		3F09F75B282548AD005C70F0 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F09F75A282548AD005C70F0 /* UIColor+Extension.swift */; };
+		3F1FC0F8282568C800A2FC23 /* CoinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F1FC0F7282568C800A2FC23 /* CoinView.xib */; };
+		3F1FC0FA282568E300A2FC23 /* CoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1FC0F9282568E300A2FC23 /* CoinView.swift */; };
+		3F1FC0FE2825763E00A2FC23 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1FC0FD2825763E00A2FC23 /* LandingViewController.swift */; };
+		3F1FC10028257B5300A2FC23 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1FC0FF28257B5300A2FC23 /* NavigationController.swift */; };
+		3F55C03528261522005CE11B /* SmallLogoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F55C03428261522005CE11B /* SmallLogoButton.swift */; };
+		3F55C0372826152D005CE11B /* SmallLogoButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F55C0362826152D005CE11B /* SmallLogoButton.xib */; };
 		3FEF221128224AAA000A800B /* LogoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FEF220F28224AAA000A800B /* LogoCollectionViewCell.xib */; };
 		3FEF221228224AAA000A800B /* LogoCollection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FEF221028224AAA000A800B /* LogoCollection.storyboard */; };
 		3FEF221528224AB9000A800B /* LogoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEF221328224AB9000A800B /* LogoCollectionViewCell.swift */; };
 		3FEF221628224AB9000A800B /* LogoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEF221428224AB9000A800B /* LogoCollectionViewController.swift */; };
 		8319C1DF282025F5000AA91B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8319C1DE282025F5000AA91B /* AppDelegate.swift */; };
 		8319C1E1282025F5000AA91B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8319C1E0282025F5000AA91B /* SceneDelegate.swift */; };
-		8319C1E3282025F5000AA91B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8319C1E2282025F5000AA91B /* ViewController.swift */; };
 		8319C1E6282025F5000AA91B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8319C1E4282025F5000AA91B /* Main.storyboard */; };
 		8319C1E9282025F5000AA91B /* Logo_Quiz_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8319C1E7282025F5000AA91B /* Logo_Quiz_App.xcdatamodeld */; };
 		8319C1EB282025F6000AA91B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8319C1EA282025F6000AA91B /* Assets.xcassets */; };
@@ -33,6 +38,12 @@
 
 /* Begin PBXFileReference section */
 		3F09F75A282548AD005C70F0 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		3F1FC0F7282568C800A2FC23 /* CoinView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinView.xib; sourceTree = "<group>"; };
+		3F1FC0F9282568E300A2FC23 /* CoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinView.swift; sourceTree = "<group>"; };
+		3F1FC0FD2825763E00A2FC23 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		3F1FC0FF28257B5300A2FC23 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		3F55C03428261522005CE11B /* SmallLogoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallLogoButton.swift; sourceTree = "<group>"; };
+		3F55C0362826152D005CE11B /* SmallLogoButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SmallLogoButton.xib; sourceTree = "<group>"; };
 		3FEF220F28224AAA000A800B /* LogoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogoCollectionViewCell.xib; sourceTree = "<group>"; };
 		3FEF221028224AAA000A800B /* LogoCollection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LogoCollection.storyboard; sourceTree = "<group>"; };
 		3FEF221328224AB9000A800B /* LogoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -40,7 +51,6 @@
 		8319C1DB282025F5000AA91B /* Logo Quiz App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Logo Quiz App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8319C1DE282025F5000AA91B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8319C1E0282025F5000AA91B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8319C1E2282025F5000AA91B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8319C1E5282025F5000AA91B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8319C1E8282025F5000AA91B /* Logo_Quiz_App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Logo_Quiz_App.xcdatamodel; sourceTree = "<group>"; };
 		8319C1EA282025F6000AA91B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -103,6 +113,10 @@
 		8319C1F5282026E0000AA91B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3F55C03428261522005CE11B /* SmallLogoButton.swift */,
+				3F55C0362826152D005CE11B /* SmallLogoButton.xib */,
+				3F1FC0F9282568E300A2FC23 /* CoinView.swift */,
+				3F1FC0F7282568C800A2FC23 /* CoinView.xib */,
 				3FEF221028224AAA000A800B /* LogoCollection.storyboard */,
 				3FEF220F28224AAA000A800B /* LogoCollectionViewCell.xib */,
 				8319C1E4282025F5000AA91B /* Main.storyboard */,
@@ -117,12 +131,13 @@
 		8319C1F6282026EE000AA91B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3F1FC0FD2825763E00A2FC23 /* LandingViewController.swift */,
 				3FEF221328224AB9000A800B /* LogoCollectionViewCell.swift */,
 				3FEF221428224AB9000A800B /* LogoCollectionViewController.swift */,
-				8319C1E2282025F5000AA91B /* ViewController.swift */,
 				B5338EB02822689E00DF53A1 /* SelectLevelViewController.swift */,
 				B5338EB228226C2400DF53A1 /* SelectLevelTableViewCell.swift */,
 				83EFEBF828240FB0009B8A2A /* QuizViewController.swift */,
+				3F1FC0FF28257B5300A2FC23 /* NavigationController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -203,6 +218,8 @@
 				8319C1E6282025F5000AA91B /* Main.storyboard in Resources */,
 				3FEF221128224AAA000A800B /* LogoCollectionViewCell.xib in Resources */,
 				B5338EB528226C2400DF53A1 /* SelectLevelTableViewCell.xib in Resources */,
+				3F55C0372826152D005CE11B /* SmallLogoButton.xib in Resources */,
+				3F1FC0F8282568C800A2FC23 /* CoinView.xib in Resources */,
 				83EFEBF728240F48009B8A2A /* QuizView.storyboard in Resources */,
 				B5338EB9282272C700DF53A1 /* SelectLevel.storyboard in Resources */,
 			);
@@ -215,18 +232,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8319C1E3282025F5000AA91B /* ViewController.swift in Sources */,
 				83EFEBF928240FB0009B8A2A /* QuizViewController.swift in Sources */,
+				3F1FC0FE2825763E00A2FC23 /* LandingViewController.swift in Sources */,
 				3FEF221628224AB9000A800B /* LogoCollectionViewController.swift in Sources */,
 				B5338EB12822689E00DF53A1 /* SelectLevelViewController.swift in Sources */,
 				3FEF221528224AB9000A800B /* LogoCollectionViewCell.swift in Sources */,
 				B5338EB428226C2400DF53A1 /* SelectLevelTableViewCell.swift in Sources */,
 				A141AD712824199200DD2270 /* UserCoreDataStore.swift in Sources */,
+				3F55C03528261522005CE11B /* SmallLogoButton.swift in Sources */,
 				3F09F75B282548AD005C70F0 /* UIColor+Extension.swift in Sources */,
 				8319C1DF282025F5000AA91B /* AppDelegate.swift in Sources */,
+				3F1FC10028257B5300A2FC23 /* NavigationController.swift in Sources */,
 				B5338EB728226D2600DF53A1 /* LevelModel.swift in Sources */,
 				8319C1E1282025F5000AA91B /* SceneDelegate.swift in Sources */,
 				83EFEBFB28240FCD009B8A2A /* Extensions.swift in Sources */,
+				3F1FC0FA282568E300A2FC23 /* CoinView.swift in Sources */,
 				A141AD67282416AA00DD2270 /* Logo.swift in Sources */,
 				8319C1E9282025F5000AA91B /* Logo_Quiz_App.xcdatamodeld in Sources */,
 			);

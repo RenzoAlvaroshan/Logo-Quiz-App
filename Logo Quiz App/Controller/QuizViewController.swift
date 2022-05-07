@@ -15,90 +15,156 @@ import UIKit
 
 @objc protocol QuizViewControllerDelegate
 {
-    @objc optional func onCorrectAnswer()
+    @objc optional func onCorrectAnswer(didAnswerItemAt indexPath: IndexPath)
 }
 
 class QuizViewController: UIViewController
 {
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
     @IBOutlet var scoreLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var textField: UITextField!
-    @IBOutlet weak var hintButton: UIButton!
+    @IBOutlet weak var hintButton: SmallLogoButton!
+    @IBOutlet weak var solveButton: SmallLogoButton!
+    @IBOutlet weak var solvedInicatorView: UIView!
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var prevButton: UIButton!
     
     weak var delegate: QuizViewControllerDelegate?
     
-    var logo: Logo?
+    var coinView = CoinView(frame: CGRect(x: 0, y: 0, width: 72, height: 27))
     
+    var managedUser: ManagedUser?
     var characterNumber = 0
+
+    // set by previous view controller
+    var dataSource: [Logo] = []
+    var selectIndexPath: IndexPath!
     
     var store: UserCoreDataStore {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
         return UserCoreDataStore(context: context)
     }
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         self.title = "Guess The Logo"
-        
-        updateScoreLabel()
-        
+        managedUser = store.fetchUser()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: coinView)
         textField.addTarget(self, action: #selector(checkAnswer), for: .editingChanged)
         
-        reset()
+        imageView.layer.borderColor = UIColor.lightGray.cgColor
         
-        let isAnswered = store.fetchUser()?.answeredQuestions?.contains(logo!.name) ?? false
-        if (isAnswered)
+        navigationButtonChecker(at: selectIndexPath, itemCount: dataSource.count)
+        refreshView(at: selectIndexPath)
+        refreshCoinView()
+    }
+    
+    func refreshView(at indexPath: IndexPath)
+    {
+        let data = dataSource[indexPath.row]
+        let isAnswered = managedUser?.answeredQuestions?.contains(data.name) ?? false
+
+        imageView.image = UIImage(named: data.imageUrl)
+        solvedInicatorView.isHidden = !isAnswered
+        solveButton.isEnabled = !isAnswered
+        hintButton.isEnabled = !isAnswered
+        solveButton.imageView.tintColor = isAnswered ? .lightGray : .appAccent2
+        hintButton.imageView.tintColor  = isAnswered ? .lightGray : .appAccent2
+        textField.text = isAnswered ? data.name : nil
+        textField.isUserInteractionEnabled = !isAnswered
+    }
+    
+    func refreshCoinView()
+    {
+        let coinValue = Int(managedUser?.score ?? 0)
+        coinView.coinValue = coinValue
+    }
+    
+    func navigationButtonChecker(at indexPath: IndexPath, itemCount: Int)
+    {
+        prevButton.isEnabled = indexPath.row > 0
+        nextButton.isEnabled = indexPath.row < itemCount - 1
+    }
+    
+    @IBAction func onPrevButton(_ sender: UIButton)
+    {
+        selectIndexPath.row -= 1
+        navigationButtonChecker(at: selectIndexPath, itemCount: dataSource.count)
+        refreshView(at: selectIndexPath)
+    }
+    
+    @IBAction func onNextButton(_ sender: UIButton)
+    {
+        selectIndexPath.row += 1
+        navigationButtonChecker(at: selectIndexPath, itemCount: dataSource.count)
+        refreshView(at: selectIndexPath)
+    }
+    
+    @IBAction func onSolveButton(_ sender: SmallLogoButton)
+    {
+        let costs       = 30
+        let userCoins   = Int(managedUser?.score ?? 0)
+        let deficit     = costs - userCoins
+        
+        let alert = UIAlertController(
+            title: "Solve Logo",
+            message: "It costs you \(costs) coins to solve. Obtain \(deficit) more coins to continue",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        if (userCoins >= costs)
         {
-            hintButton.isHidden = true
-            textField.text = logo?.name
-            textField.isUserInteractionEnabled = false
-        }
-    }
-    
-    func updateScoreLabel() {
-        scoreLabel.text = "\(store.fetchUser()?.score ?? 0)"
-    }
-    
-    func reset() {
-        textField.text = ""
-        characterNumber = 0
-        imageView.image = UIImage(named: logo!.imageUrl)
-    }
-
-    @objc func checkAnswer() {
-        let isCorrectAnswer = textField.text == logo!.name
-        
-        if isCorrectAnswer {
-            imageView.image = UIImage(systemName: "checkmark")
-            
-            // Add to user score
-            store.addUserScore(amount: 10)
-            
-            // Update score in label
-            updateScoreLabel()
-            
-            // Add answered question
-            store.addAnsweredQuestion(logo!.name)
-            
-            delegate?.onCorrectAnswer?()
-        }
-    }
-    
-    @IBAction func buttonTapped(_ sender: UIButton) {
-        if characterNumber == 0 {
-            textField.text = logo!.name[characterNumber]
-        } else {
-            textField.text! += logo!.name[characterNumber]
+            alert.message = "Would you like to solve this logo? This costs you: \(costs) coins"
+            alert.addAction(UIAlertAction(title: "Solve", style: .default) { [self] _ in
+                onCorrectAnswer(addCoins: -(costs))
+            })
         }
         
-        characterNumber += 1
-        
-        checkAnswer()
+        present(alert, animated: true)
     }
-
-    @IBAction func resetTapped(_ sender: UIButton) {
-        reset()
+    
+    @IBAction func onHintButton(_ sender: SmallLogoButton)
+    {
+        let costs       = 10
+        let userCoins   = Int(managedUser?.score ?? 0)
+        let deficit     = costs - userCoins
+        
+        let alert = UIAlertController(
+            title: "Use Hint",
+            message: "It costs you \(costs) coins to use hint. Obtain \(deficit) more coins to continue",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        if (userCoins >= costs)
+        {
+            alert.message = "Would you like to reveal a letter? This costs you: \(costs) coins"
+            alert.addAction(UIAlertAction(title: "Hint", style: .default) { [self] _ in
+                store.addUserScore(amount: -(costs))
+            })
+        }
+        
+        present(alert, animated: true)
+    }
+    
+    @objc func checkAnswer()
+    {
+        let data = dataSource[selectIndexPath.row]
+        let isCorrectAnswer = textField.text == data.name
+        if (isCorrectAnswer) { onCorrectAnswer(addCoins: 10) }
+    }
+    
+    func onCorrectAnswer(addCoins: Int)
+    {
+        let data = dataSource[selectIndexPath.row]
+        store.addUserScore(amount: addCoins)
+        store.addAnsweredQuestion(data.name)
+        refreshView(at: selectIndexPath)
+        refreshCoinView()
+        delegate?.onCorrectAnswer?(didAnswerItemAt: selectIndexPath)
     }
 }

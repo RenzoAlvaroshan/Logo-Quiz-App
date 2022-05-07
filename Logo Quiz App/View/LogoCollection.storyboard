@@ -16,8 +16,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m2V-A7-Lyf">
+                                <rect key="frame" x="0.0" y="62" width="390" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 / 15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hN-ej-JQk">
+                                        <rect key="frame" x="174" y="20" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemGrayColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="2hN-ej-JQk" firstAttribute="centerX" secondItem="m2V-A7-Lyf" secondAttribute="centerX" id="HK5-RH-miL"/>
+                                    <constraint firstItem="2hN-ej-JQk" firstAttribute="top" secondItem="m2V-A7-Lyf" secondAttribute="top" constant="20" id="sU3-Qe-WVq"/>
+                                    <constraint firstAttribute="height" constant="100" id="wYa-KJ-85r"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="33"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8WV-N7-e2O">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="112" width="390" height="732"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="im6-WQ-AbN">
                                     <size key="itemSize" width="128" height="128"/>
@@ -33,15 +55,19 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7nJ-rt-1xB"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.38975679870000002" green="0.03529150784" blue="0.87514024970000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="8WV-N7-e2O" firstAttribute="trailing" secondItem="7nJ-rt-1xB" secondAttribute="trailing" id="92j-vb-ayN"/>
-                            <constraint firstItem="8WV-N7-e2O" firstAttribute="leading" secondItem="7nJ-rt-1xB" secondAttribute="leading" id="Qth-0d-MKV"/>
-                            <constraint firstItem="8WV-N7-e2O" firstAttribute="bottom" secondItem="7nJ-rt-1xB" secondAttribute="bottom" id="jI1-BB-v1N"/>
-                            <constraint firstItem="8WV-N7-e2O" firstAttribute="top" secondItem="7nJ-rt-1xB" secondAttribute="top" id="zFM-Yq-DXM"/>
+                            <constraint firstItem="m2V-A7-Lyf" firstAttribute="leading" secondItem="7nJ-rt-1xB" secondAttribute="leading" id="451-F8-Sk5"/>
+                            <constraint firstItem="7nJ-rt-1xB" firstAttribute="trailing" secondItem="m2V-A7-Lyf" secondAttribute="trailing" id="GSW-cm-gwa"/>
+                            <constraint firstItem="8WV-N7-e2O" firstAttribute="leading" secondItem="7nJ-rt-1xB" secondAttribute="leading" id="GUI-gT-1Tq"/>
+                            <constraint firstItem="8WV-N7-e2O" firstAttribute="trailing" secondItem="7nJ-rt-1xB" secondAttribute="trailing" id="VBR-y1-Bii"/>
+                            <constraint firstItem="m2V-A7-Lyf" firstAttribute="top" secondItem="7nJ-rt-1xB" secondAttribute="top" constant="18" id="Vgj-Yb-AyE"/>
+                            <constraint firstItem="8WV-N7-e2O" firstAttribute="bottom" secondItem="cSy-mD-GM1" secondAttribute="bottom" id="j5w-2a-5oD"/>
+                            <constraint firstItem="8WV-N7-e2O" firstAttribute="top" secondItem="m2V-A7-Lyf" secondAttribute="bottom" constant="-50" id="kyR-lo-6nD"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="answeredLabel" destination="2hN-ej-JQk" id="Uec-se-mof"/>
                         <outlet property="collectionView" destination="8WV-N7-e2O" id="XLU-Na-Dac"/>
                         <segue destination="LfL-44-I4s" kind="show" identifier="goToQuiz" id="szw-rP-5Sn"/>
                     </connections>
@@ -64,6 +90,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

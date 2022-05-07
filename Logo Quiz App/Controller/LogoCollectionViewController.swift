@@ -16,6 +16,11 @@ class LogoCollectionViewController: UIViewController
         return UserCoreDataStore(context: context).fetchUser()
     }()
     
+    var answeredCount: Int = 0 { didSet {
+        answeredLabel.text = "\(answeredCount) / \(dataSource.count)"
+    }}
+    
+    @IBOutlet weak var answeredLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad()
@@ -39,7 +44,8 @@ class LogoCollectionViewController: UIViewController
         {
             guard let vc = segue.destination as? QuizViewController
             else { return }
-            vc.logo = dataSource[selectIndexPath.row]
+            vc.selectIndexPath = self.selectIndexPath
+            vc.dataSource = self.dataSource
             vc.delegate = self
         }
     }
@@ -82,6 +88,7 @@ extension LogoCollectionViewController: UICollectionViewDataSource
     {
         let data        = dataSource[indexPath.row]
         let isAnswered  = managedUser?.answeredQuestions?.contains(data.name) ?? false
+        answeredCount   += isAnswered ? 1 : 0
         
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier:reuseIdentifier,
@@ -89,12 +96,21 @@ extension LogoCollectionViewController: UICollectionViewDataSource
         ) as! LogoCollectionViewCell
         
         cell.image = UIImage(named: data.imageUrl)
-        cell.indicatorImageView.tintColor = .appGreen
+        cell.indicatorImageView.tintColor = .appGreen2
         cell.indicatorImageView.isHidden = !isAnswered
-        
+    
         cell.layer.cornerRadius = 8
-        cell.layer.borderWidth = isAnswered ? 2 : 1
-        cell.layer.borderColor = isAnswered ? UIColor.appAccent.cgColor : UIColor.gray.cgColor
+        cell.layer.masksToBounds = true
+        cell.layer.shadowRadius = 4
+        cell.layer.shadowOpacity = 0.3
+        cell.layer.shadowColor = UIColor.gray.cgColor
+        cell.layer.shadowOffset = CGSize(width: 0, height: 5)
+        
+        cell.bgView.backgroundColor = .white
+        
+        cell.bgView.layer.cornerRadius     = 8
+        // cell.bgView.layer.borderWidth      = isAnswered ? 2 : 1
+        // cell.bgView.layer.borderColor      = isAnswered ? UIColor.appAccent.cgColor : UIColor.gray.cgColor
         
         return cell
     }
@@ -113,8 +129,8 @@ extension LogoCollectionViewController: UICollectionViewDelegate
 // MARK: QuizViewControllerDelegate
 extension LogoCollectionViewController: QuizViewControllerDelegate
 {
-    func onCorrectAnswer()
+    func onCorrectAnswer(didAnswerItemAt indexPath: IndexPath)
     {
-        collectionView.reloadItems(at: [selectIndexPath])
+        collectionView.reloadItems(at: [indexPath])
     }
 }

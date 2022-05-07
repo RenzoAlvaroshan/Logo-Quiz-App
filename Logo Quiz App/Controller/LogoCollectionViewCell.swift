@@ -3,6 +3,7 @@ import UIKit
 @IBDesignable
 class LogoCollectionViewCell: UICollectionViewCell
 {
+    @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var indicatorImageView: UIImageView!
     

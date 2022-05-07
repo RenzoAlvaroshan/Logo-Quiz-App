@@ -18,43 +18,44 @@
             </objects>
             <point key="canvasLocation" x="2685" y="23"/>
         </scene>
-        <!--View Controller-->
+        <!--Landing View Controller-->
         <scene sceneID="bjo-O7-xDe">
             <objects>
-                <viewController id="nux-ef-5FJ" sceneMemberID="viewController">
+                <viewController id="nux-ef-5FJ" customClass="LandingViewController" customModule="Logo_Quiz_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sOd-VI-tzi">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H78-Lj-YKg">
-                                <rect key="frame" x="20" y="628.33333333333337" width="350" height="50"/>
+                                <rect key="frame" x="34" y="632.33333333333337" width="322" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="e88-FL-Jx6"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Let's Play!">
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="baseBackgroundColor" red="0.97650796179999999" green="0.80609846119999995" blue="0.43509876730000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="14"/>
+                                    <color key="baseForegroundColor" red="0.38975679870000002" green="0.03529150784" blue="0.87514024970000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <segue destination="zVz-j3-9Lc" kind="show" id="ubd-Pn-BpE"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guess how much do you know about Indonesian logos name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJk-BO-oUc">
-                                <rect key="frame" x="20" y="506.33333333333326" width="350" height="48"/>
+                                <rect key="frame" x="34" y="510.33333333333326" width="322" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <color key="textColor" systemColor="systemGray5Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logopedia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hth-7J-y5A">
                                 <rect key="frame" x="117.66666666666667" y="445.66666666666669" width="154.66666666666663" height="40.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="7wb-LO-dv9">
                                 <rect key="frame" x="45" y="104.66666666666666" width="300" height="300.66666666666669"/>
-                                <color key="tintColor" red="0.97650796179999999" green="0.80609846119999995" blue="0.43509876730000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="KoA-H9-SNb"/>
                                     <constraint firstAttribute="width" constant="300" id="rh9-09-Qjc"/>
@@ -62,17 +63,17 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8HW-bl-v3R"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.38975679870000002" green="0.03529150784" blue="0.87514024970000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Hth-7J-y5A" firstAttribute="top" secondItem="7wb-LO-dv9" secondAttribute="bottom" constant="40" id="2Rz-X9-vrs"/>
                             <constraint firstItem="Hth-7J-y5A" firstAttribute="centerY" secondItem="sOd-VI-tzi" secondAttribute="centerY" constant="44" id="6R7-hl-iuX"/>
                             <constraint firstItem="H78-Lj-YKg" firstAttribute="top" secondItem="RJk-BO-oUc" secondAttribute="bottom" constant="74" id="9TV-8e-Rab"/>
-                            <constraint firstItem="RJk-BO-oUc" firstAttribute="top" secondItem="Hth-7J-y5A" secondAttribute="bottom" constant="20" id="C2C-Od-Ojq"/>
+                            <constraint firstItem="RJk-BO-oUc" firstAttribute="top" secondItem="Hth-7J-y5A" secondAttribute="bottom" constant="24" id="C2C-Od-Ojq"/>
                             <constraint firstItem="Hth-7J-y5A" firstAttribute="centerX" secondItem="sOd-VI-tzi" secondAttribute="centerX" id="GMW-go-zmq"/>
-                            <constraint firstAttribute="trailing" secondItem="RJk-BO-oUc" secondAttribute="trailing" constant="20" id="RR6-Ef-vyQ"/>
-                            <constraint firstItem="H78-Lj-YKg" firstAttribute="leading" secondItem="8HW-bl-v3R" secondAttribute="leading" constant="20" id="Rpm-fn-9t5"/>
-                            <constraint firstItem="8HW-bl-v3R" firstAttribute="trailing" secondItem="H78-Lj-YKg" secondAttribute="trailing" constant="20" id="Tah-HS-SWI"/>
-                            <constraint firstItem="RJk-BO-oUc" firstAttribute="leading" secondItem="8HW-bl-v3R" secondAttribute="leading" constant="20" id="Zli-cF-czb"/>
+                            <constraint firstAttribute="trailing" secondItem="RJk-BO-oUc" secondAttribute="trailing" constant="34" id="RR6-Ef-vyQ"/>
+                            <constraint firstItem="H78-Lj-YKg" firstAttribute="leading" secondItem="8HW-bl-v3R" secondAttribute="leading" constant="34" id="Rpm-fn-9t5"/>
+                            <constraint firstItem="8HW-bl-v3R" firstAttribute="trailing" secondItem="H78-Lj-YKg" secondAttribute="trailing" constant="34" id="Tah-HS-SWI"/>
+                            <constraint firstItem="RJk-BO-oUc" firstAttribute="leading" secondItem="8HW-bl-v3R" secondAttribute="leading" constant="34" id="Zli-cF-czb"/>
                             <constraint firstItem="7wb-LO-dv9" firstAttribute="centerX" secondItem="sOd-VI-tzi" secondAttribute="centerX" id="b9W-Jt-f45"/>
                         </constraints>
                     </view>
@@ -85,7 +86,7 @@
         <!--Navigation Controller-->
         <scene sceneID="WTH-LS-en2">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3cd-Te-n74" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3cd-Te-n74" customClass="NavigationController" customModule="Logo_Quiz_App" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JdW-Wk-XMH">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
@@ -103,11 +104,8 @@
     </scenes>
     <resources>
         <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
