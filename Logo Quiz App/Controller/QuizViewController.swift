@@ -13,6 +13,8 @@ import UIKit
 // - Munculin logo aslinya
 // Cek dari store.fetchUser()?.answeredQuestions?.contains("nama logonya")
 
+// Kalau coinnya kurang untuk solve atau hint akan bagaimana?
+
 @objc protocol QuizViewControllerDelegate
 {
     @objc optional func onCorrectAnswer(didAnswerItemAt indexPath: IndexPath)
@@ -22,7 +24,6 @@ class QuizViewController: UIViewController
 {
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
-    @IBOutlet var scoreLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var textField: UITextField!
     @IBOutlet weak var hintButton: SmallLogoButton!
@@ -114,13 +115,24 @@ class QuizViewController: UIViewController
             message: "It costs you \(costs) coins to solve. Obtain \(deficit) more coins to continue",
             preferredStyle: .alert
         )
+        
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         
         if (userCoins >= costs)
         {
             alert.message = "Would you like to solve this logo? This costs you: \(costs) coins"
             alert.addAction(UIAlertAction(title: "Solve", style: .default) { [self] _ in
+                let data = dataSource[selectIndexPath.row]
+                
+                if characterNumber == 0 {
+                    textField.text = data.name[characterNumber]
+                } else {
+                    textField.text! += data.name[characterNumber]
+                }
+                
+                checkAnswer()
                 onCorrectAnswer(addCoins: -(costs))
+                refreshCoinView()
             })
         }
         
@@ -144,7 +156,11 @@ class QuizViewController: UIViewController
         {
             alert.message = "Would you like to reveal a letter? This costs you: \(costs) coins"
             alert.addAction(UIAlertAction(title: "Hint", style: .default) { [self] _ in
+                let data = dataSource[selectIndexPath.row]
+                textField.text = data.name[0]
+                checkAnswer()
                 store.addUserScore(amount: -(costs))
+                refreshCoinView()
             })
         }
         
