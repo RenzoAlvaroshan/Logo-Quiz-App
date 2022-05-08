@@ -2,31 +2,43 @@
 //  SelectLevelViewController.swift
 //  Logo Quiz App
 //
-//  Created by Hansel Matthew on 04/05/22.
+//  Created by Hansel Matthew on 09/05/22.
 //
 
 import UIKit
 
-class SelectLevelViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
-{
-    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+class SelectLevelViewController: UIViewController {
     
-    @IBOutlet weak var SelectLevelTable: UITableView!
+    
+    @IBOutlet weak var level1Progress: UILabel!
+    @IBOutlet weak var level1Percentage: UILabel!
+    @IBOutlet weak var level2Progress: UILabel!
+    @IBOutlet weak var level2Percentage: UILabel!
+    @IBOutlet weak var level3Progress: UILabel!
+    @IBOutlet weak var level3Percentage: UILabel!
+    @IBOutlet weak var level4Progress: UILabel!
+    @IBOutlet weak var level4Percentage: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var logoSolved: UILabel!
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
     var data: Dictionary<Int, Level> = [:]
     
-    let bgColorList: [UIColor] = [ .green, .blue, .purple, .red, .orange, .brown ]
+    var selectedLabel: Int = 0
     
     var store: UserCoreDataStore {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         return UserCoreDataStore(context: context)
     }
-    
-    let cellSpacingHeight: CGFloat = 100
-    
-    override func viewDidLoad()
-    {
+
+    override func viewDidLoad() {
         super.viewDidLoad()
+
+        logoSolved.layer.cornerRadius = 12
+        logoSolved.layer.masksToBounds = true
+        scrollView.layer.cornerRadius = 33
+        
         self.title = "Select Level"
         let user = store.fetchUser()
         
@@ -35,60 +47,51 @@ class SelectLevelViewController: UIViewController, UITableViewDelegate, UITableV
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: view)
         
         Logo.list.forEach() { logo in
-            var level = data[logo.level] ?? Level(title: logo.level, progress: 0, maxProgress: 0, backgroundColor: .white)
-            let isAnswered = user?.answeredQuestions?.contains(logo.name) ?? false
-            level.maxProgress += 1
-            level.progress += isAnswered ? 1 : 0
-            data[logo.level] = level
-        }
+                    var level = data[logo.level] ?? Level(title: logo.level, progress: 0, maxProgress: 0, backgroundColor: .white)
+                    let isAnswered = user?.answeredQuestions?.contains(logo.name) ?? false
+                    level.maxProgress += 1
+                    level.progress += isAnswered ? 1 : 0
+                    data[logo.level] = level
+                }
         
-        let nib = UINib(nibName: "SelectLevelTableViewCell", bundle: nil)
-        SelectLevelTable.register(nib, forCellReuseIdentifier: "SelectLevelTableViewCell")
-        SelectLevelTable.delegate = self
-        SelectLevelTable.dataSource = self
-               
+        level1Progress.text = data[0]?.getProgressString()
+        level1Percentage.text = data[0]?.getPercentageString()
+        
+        level2Progress.text = data[1]?.getProgressString()
+        level2Percentage.text = data[1]?.getPercentageString()
+        
+        level3Progress.text = data[2]?.getProgressString()
+        level3Percentage.text = data[2]?.getPercentageString()
+ 
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-        if (segue.identifier == "goToCollection")
-        {
-            guard let vc = segue.destination as? LogoCollectionViewController
-            else { return }
-            vc.selectedLevel = SelectLevelTable.indexPathForSelectedRow?.row
-        }
-    }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        data.count
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SelectLevelTableViewCell", for: indexPath) as! SelectLevelTableViewCell
-        
-        let tableLevel = data[indexPath.section]!
-        
-        cell.configure(tableLevel)
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    @IBAction func levelButtonPressed(_ sender: UIButton) {
+        selectedLabel =  Int((sender.titleLabel?.text)!)!
+//        print()
         self.performSegue(withIdentifier: "goToCollection", sender: self)
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return data.count
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+        {
+            if (segue.identifier == "goToCollection")
+            {
+                guard let vc = segue.destination as? LogoCollectionViewController
+                else { return }
+                vc.selectedLevel = selectedLabel + 1
+//                vc.selectedLevel =   SelectLevelTable.indexPathForSelectedRow?.row
+            }
+        }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
     }
-    
-    // Set the spacing between sections
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-       
-        return cellSpacingHeight
-    }
-    
-    
+    */
 
 }

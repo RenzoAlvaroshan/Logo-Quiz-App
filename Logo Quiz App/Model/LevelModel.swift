@@ -25,7 +25,7 @@ struct Level
     }
     
     func getPercentageString() -> String {
-        let PercentComplete = Double(self.progress)/Double(self.maxProgress)*100
+        let PercentComplete = Int(Double(self.progress)/Double(self.maxProgress)*100)
        return "\(PercentComplete)%"
     }
 }

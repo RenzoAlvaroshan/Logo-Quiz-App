@@ -29,11 +29,9 @@
 		83EFEBFB28240FCD009B8A2A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EFEBFA28240FCD009B8A2A /* Extensions.swift */; };
 		A141AD67282416AA00DD2270 /* Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A141AD66282416AA00DD2270 /* Logo.swift */; };
 		A141AD712824199200DD2270 /* UserCoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A141AD702824199200DD2270 /* UserCoreDataStore.swift */; };
-		B5338EB12822689E00DF53A1 /* SelectLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5338EB02822689E00DF53A1 /* SelectLevelViewController.swift */; };
-		B5338EB428226C2400DF53A1 /* SelectLevelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5338EB228226C2400DF53A1 /* SelectLevelTableViewCell.swift */; };
-		B5338EB528226C2400DF53A1 /* SelectLevelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5338EB328226C2400DF53A1 /* SelectLevelTableViewCell.xib */; };
 		B5338EB728226D2600DF53A1 /* LevelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5338EB628226D2600DF53A1 /* LevelModel.swift */; };
 		B5338EB9282272C700DF53A1 /* SelectLevel.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5338EB8282272C700DF53A1 /* SelectLevel.storyboard */; };
+		B54B6B192828375400068552 /* SelectLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54B6B182828375400068552 /* SelectLevelViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,11 +59,9 @@
 		83EFEBFA28240FCD009B8A2A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A141AD66282416AA00DD2270 /* Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logo.swift; sourceTree = "<group>"; };
 		A141AD702824199200DD2270 /* UserCoreDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoreDataStore.swift; sourceTree = "<group>"; };
-		B5338EB02822689E00DF53A1 /* SelectLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLevelViewController.swift; sourceTree = "<group>"; };
-		B5338EB228226C2400DF53A1 /* SelectLevelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLevelTableViewCell.swift; sourceTree = "<group>"; };
-		B5338EB328226C2400DF53A1 /* SelectLevelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectLevelTableViewCell.xib; sourceTree = "<group>"; };
 		B5338EB628226D2600DF53A1 /* LevelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelModel.swift; sourceTree = "<group>"; };
 		B5338EB8282272C700DF53A1 /* SelectLevel.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectLevel.storyboard; sourceTree = "<group>"; };
+		B54B6B182828375400068552 /* SelectLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLevelViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +118,6 @@
 				8319C1E4282025F5000AA91B /* Main.storyboard */,
 				8319C1EC282025F6000AA91B /* LaunchScreen.storyboard */,
 				B5338EB8282272C700DF53A1 /* SelectLevel.storyboard */,
-				B5338EB328226C2400DF53A1 /* SelectLevelTableViewCell.xib */,
 				83EFEBF628240F48009B8A2A /* QuizView.storyboard */,
 			);
 			path = View;
@@ -134,8 +129,7 @@
 				3F1FC0FD2825763E00A2FC23 /* LandingViewController.swift */,
 				3FEF221328224AB9000A800B /* LogoCollectionViewCell.swift */,
 				3FEF221428224AB9000A800B /* LogoCollectionViewController.swift */,
-				B5338EB02822689E00DF53A1 /* SelectLevelViewController.swift */,
-				B5338EB228226C2400DF53A1 /* SelectLevelTableViewCell.swift */,
+				B54B6B182828375400068552 /* SelectLevelViewController.swift */,
 				83EFEBF828240FB0009B8A2A /* QuizViewController.swift */,
 				3F1FC0FF28257B5300A2FC23 /* NavigationController.swift */,
 			);
@@ -217,7 +211,6 @@
 				8319C1EB282025F6000AA91B /* Assets.xcassets in Resources */,
 				8319C1E6282025F5000AA91B /* Main.storyboard in Resources */,
 				3FEF221128224AAA000A800B /* LogoCollectionViewCell.xib in Resources */,
-				B5338EB528226C2400DF53A1 /* SelectLevelTableViewCell.xib in Resources */,
 				3F55C0372826152D005CE11B /* SmallLogoButton.xib in Resources */,
 				3F1FC0F8282568C800A2FC23 /* CoinView.xib in Resources */,
 				83EFEBF728240F48009B8A2A /* QuizView.storyboard in Resources */,
@@ -234,10 +227,9 @@
 			files = (
 				83EFEBF928240FB0009B8A2A /* QuizViewController.swift in Sources */,
 				3F1FC0FE2825763E00A2FC23 /* LandingViewController.swift in Sources */,
+				B54B6B192828375400068552 /* SelectLevelViewController.swift in Sources */,
 				3FEF221628224AB9000A800B /* LogoCollectionViewController.swift in Sources */,
-				B5338EB12822689E00DF53A1 /* SelectLevelViewController.swift in Sources */,
 				3FEF221528224AB9000A800B /* LogoCollectionViewCell.swift in Sources */,
-				B5338EB428226C2400DF53A1 /* SelectLevelTableViewCell.swift in Sources */,
 				A141AD712824199200DD2270 /* UserCoreDataStore.swift in Sources */,
 				3F55C03528261522005CE11B /* SmallLogoButton.swift in Sources */,
 				3F09F75B282548AD005C70F0 /* UIColor+Extension.swift in Sources */,
