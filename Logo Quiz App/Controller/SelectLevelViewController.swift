@@ -22,6 +22,8 @@ class SelectLevelViewController: UIViewController, UITableViewDelegate, UITableV
         return UserCoreDataStore(context: context)
     }
     
+    let cellSpacingHeight: CGFloat = 100
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -58,18 +60,17 @@ class SelectLevelViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        data.count
+//        data.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SelectLevelTableViewCell", for: indexPath) as! SelectLevelTableViewCell
         
-        let tableLevel = data[indexPath.row]!
+        let tableLevel = data[indexPath.section]!
         
         cell.configure(tableLevel)
-        
-        cell.backgroundColor = tableLevel.backgroundColor
         
         return cell
     }
@@ -77,5 +78,17 @@ class SelectLevelViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "goToCollection", sender: self)
     }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return data.count
+    }
+    
+    // Set the spacing between sections
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+       
+        return cellSpacingHeight
+    }
+    
+    
 
 }

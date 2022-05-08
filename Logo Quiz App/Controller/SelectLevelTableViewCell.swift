@@ -16,7 +16,9 @@ class SelectLevelTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        self.layer.cornerRadius = 20
+        self.backgroundColor = UIColor(red: 248/255.0, green: 248/255.0, blue: 248/255.0, alpha: 1.0)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -25,14 +27,9 @@ class SelectLevelTableViewCell: UITableViewCell {
     
     func configure(_ LevelModel: Level)
     {
-        LevelLabel.text = String(LevelModel.title)
-        let ProgressText = "\(LevelModel.progress)/\(LevelModel.maxProgress)"
-        
-        ProgressLabel.text = ProgressText
-        let PercentComplete = Double(LevelModel.progress)/Double(LevelModel.maxProgress)*100
-        let PercentText = "\(PercentComplete)%"
-        print(PercentText)
-        PercentageCompletedLabel.text = PercentText
-        
+        LevelLabel.text = LevelModel.getLevelTitle()
+        ProgressLabel.text = LevelModel.getProgressString()
+        PercentageCompletedLabel.text = LevelModel.getPercentageString()
     }
+    
 }

@@ -14,4 +14,18 @@ struct Level
     var progress: Int
     var maxProgress: Int
     var backgroundColor: UIColor
+    
+    
+    func getLevelTitle() -> String {
+        return "Level \(self.title)"
+    }
+    
+    func getProgressString() -> String {
+        return "\(self.progress)/\(self.maxProgress)"
+    }
+    
+    func getPercentageString() -> String {
+        let PercentComplete = Double(self.progress)/Double(self.maxProgress)*100
+       return "\(PercentComplete)%"
+    }
 }
