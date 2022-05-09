@@ -1,19 +1,4 @@
-//
-//  QuizViewController.swift
-//  Logo Quiz App
-//
-//  Created by Renzo Alvaroshan on 05/05/22.
-//
-
 import UIKit
-
-// TODO: kalo soalnya udah ke jawab, update UI nya (cek dari CoreData)
-// - Textfield udah keisi jawabannya, gabisa diubah
-// - Button hint dihapus
-// - Munculin logo aslinya
-// Cek dari store.fetchUser()?.answeredQuestions?.contains("nama logonya")
-
-// Kalau coinnya kurang untuk solve atau hint akan bagaimana?
 
 @objc protocol QuizViewControllerDelegate
 {
@@ -48,6 +33,8 @@ class QuizViewController: UIViewController
         return UserCoreDataStore(context: context)
     }
     
+    private var gainCoinValue: Int = 0
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -68,7 +55,7 @@ class QuizViewController: UIViewController
         let data = dataSource[indexPath.row]
         let isAnswered = managedUser?.answeredQuestions?.contains(data.name) ?? false
 
-        imageView.image = UIImage(named: data.imageUrl)
+        imageView.image = UIImage(named: isAnswered ? data.answerImageName : data.guessImageName)
         solvedInicatorView.isHidden = !isAnswered
         solveButton.isEnabled = !isAnswered
         hintButton.isEnabled = !isAnswered
@@ -170,7 +157,7 @@ class QuizViewController: UIViewController
     @objc func checkAnswer()
     {
         let data = dataSource[selectIndexPath.row]
-        let isCorrectAnswer = textField.text == data.name
+        let isCorrectAnswer = textField.text?.caseInsensitiveCompare(data.name) == .orderedSame
         if (isCorrectAnswer) { onCorrectAnswer(addCoins: 10) }
     }
     
@@ -181,6 +168,94 @@ class QuizViewController: UIViewController
         store.addAnsweredQuestion(data.name)
         refreshView(at: selectIndexPath)
         refreshCoinView()
+        
+        let vc = GainPointViewController(nibName: "GainPointViewController", bundle: nil)
+        vc.coinValue = addCoins
+        vc.modalPresentationStyle = .custom
+        vc.transitioningDelegate = self
+        
+        vc.view.clipsToBounds = true
+        vc.view.layer.cornerRadius = 33
+        vc.view.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        
+        present(vc, animated: true)
+        
         delegate?.onCorrectAnswer?(didAnswerItemAt: selectIndexPath)
+    }
+}
+
+extension QuizViewController: UIViewControllerTransitioningDelegate
+{
+    class ToastPresentationController: UIPresentationController
+    {
+        let inset: CGFloat!
+        
+        init(inset: CGFloat, presentedViewController: UIViewController, presenting: UIViewController?)
+        {
+            self.inset = inset
+            super.init(presentedViewController: presentedViewController, presenting: presenting)
+        }
+        
+        override var frameOfPresentedViewInContainerView: CGRect
+        {
+            guard let containerView = containerView,
+                let presentedView = presentedView else { return .zero }
+
+            // Make sure to account for the safe area insets
+            let safeAreaFrame = containerView.bounds
+                .inset(by: containerView.safeAreaInsets)
+
+            let targetWidth = safeAreaFrame.width - 2 * inset
+            let fittingSize = CGSize(
+                width: targetWidth,
+                height: UIView.layoutFittingCompressedSize.height
+            )
+            let targetHeight = presentedView.systemLayoutSizeFitting(
+                fittingSize, withHorizontalFittingPriority: .required,
+                verticalFittingPriority: .defaultLow).height
+
+            var frame = safeAreaFrame
+            frame.origin.x += inset
+            frame.origin.y += frame.size.height - targetHeight - inset
+            frame.size.width = targetWidth
+            frame.size.height = targetHeight
+            return frame
+        }
+
+        override func containerViewDidLayoutSubviews() {
+            super.containerViewDidLayoutSubviews()
+            presentedView?.frame = frameOfPresentedViewInContainerView
+        }
+    }
+    
+    class SheetPresentationController: UIPresentationController
+    {
+        override var frameOfPresentedViewInContainerView: CGRect
+        {
+            guard let containerView = containerView,
+                let presentedView = presentedView else { return .zero }
+
+            let targetWidth     = containerView.bounds.width
+            let targetHeight    = presentedView.frame.height
+
+            var frame           = containerView.bounds
+            frame.origin.y      += frame.size.height - targetHeight
+            frame.size.width    = targetWidth
+            frame.size.height   = targetHeight
+            return frame
+        }
+
+        override func containerViewDidLayoutSubviews() {
+            super.containerViewDidLayoutSubviews()
+            presentedView?.frame = frameOfPresentedViewInContainerView
+        }
+    }
+    
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController?
+    {
+        return SheetPresentationController(
+            presentedViewController: presented,
+            presenting: presenting
+        )
     }
 }

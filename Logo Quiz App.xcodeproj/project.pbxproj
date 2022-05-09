@@ -14,6 +14,9 @@
 		3F1FC10028257B5300A2FC23 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1FC0FF28257B5300A2FC23 /* NavigationController.swift */; };
 		3F55C03528261522005CE11B /* SmallLogoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F55C03428261522005CE11B /* SmallLogoButton.swift */; };
 		3F55C0372826152D005CE11B /* SmallLogoButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F55C0362826152D005CE11B /* SmallLogoButton.xib */; };
+		3F9ED56F28294F7C0055D332 /* GainPointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9ED56D28294F7C0055D332 /* GainPointViewController.swift */; };
+		3F9ED57028294F7C0055D332 /* GainPointViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F9ED56E28294F7C0055D332 /* GainPointViewController.xib */; };
+		3F9ED57428295B5C0055D332 /* UIView+Controller+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9ED57328295B5C0055D332 /* UIView+Controller+Extension.swift */; };
 		3FD21F86282913B6005DB877 /* LevelProgressControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD21F85282913B6005DB877 /* LevelProgressControl.swift */; };
 		3FD21F88282913C2005DB877 /* LevelProgressControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FD21F87282913C2005DB877 /* LevelProgressControl.xib */; };
 		3FEF221128224AAA000A800B /* LogoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FEF220F28224AAA000A800B /* LogoCollectionViewCell.xib */; };
@@ -44,6 +47,9 @@
 		3F1FC0FF28257B5300A2FC23 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		3F55C03428261522005CE11B /* SmallLogoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallLogoButton.swift; sourceTree = "<group>"; };
 		3F55C0362826152D005CE11B /* SmallLogoButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SmallLogoButton.xib; sourceTree = "<group>"; };
+		3F9ED56D28294F7C0055D332 /* GainPointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GainPointViewController.swift; sourceTree = "<group>"; };
+		3F9ED56E28294F7C0055D332 /* GainPointViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GainPointViewController.xib; sourceTree = "<group>"; };
+		3F9ED57328295B5C0055D332 /* UIView+Controller+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Controller+Extension.swift"; sourceTree = "<group>"; };
 		3FD21F85282913B6005DB877 /* LevelProgressControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelProgressControl.swift; sourceTree = "<group>"; };
 		3FD21F87282913C2005DB877 /* LevelProgressControl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelProgressControl.xib; sourceTree = "<group>"; };
 		3FEF220F28224AAA000A800B /* LogoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogoCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -100,6 +106,7 @@
 			children = (
 				8319C1DE282025F5000AA91B /* AppDelegate.swift */,
 				8319C1E0282025F5000AA91B /* SceneDelegate.swift */,
+				3F9ED57328295B5C0055D332 /* UIView+Controller+Extension.swift */,
 				3F09F75A282548AD005C70F0 /* UIColor+Extension.swift */,
 				8319C1F7282026FB000AA91B /* Model */,
 				8319C1F6282026EE000AA91B /* Controller */,
@@ -125,6 +132,8 @@
 				83EFEBF628240F48009B8A2A /* QuizView.storyboard */,
 				3FD21F85282913B6005DB877 /* LevelProgressControl.swift */,
 				3FD21F87282913C2005DB877 /* LevelProgressControl.xib */,
+				3F9ED56D28294F7C0055D332 /* GainPointViewController.swift */,
+				3F9ED56E28294F7C0055D332 /* GainPointViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -216,6 +225,7 @@
 				3FEF221228224AAA000A800B /* LogoCollection.storyboard in Resources */,
 				8319C1EB282025F6000AA91B /* Assets.xcassets in Resources */,
 				8319C1E6282025F5000AA91B /* Main.storyboard in Resources */,
+				3F9ED57028294F7C0055D332 /* GainPointViewController.xib in Resources */,
 				3FEF221128224AAA000A800B /* LogoCollectionViewCell.xib in Resources */,
 				3F55C0372826152D005CE11B /* SmallLogoButton.xib in Resources */,
 				3FD21F88282913C2005DB877 /* LevelProgressControl.xib in Resources */,
@@ -233,9 +243,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				83EFEBF928240FB0009B8A2A /* QuizViewController.swift in Sources */,
+				3F9ED57428295B5C0055D332 /* UIView+Controller+Extension.swift in Sources */,
 				3F1FC0FE2825763E00A2FC23 /* LandingViewController.swift in Sources */,
 				B54B6B192828375400068552 /* SelectLevelViewController.swift in Sources */,
 				3FEF221628224AB9000A800B /* LogoCollectionViewController.swift in Sources */,
+				3F9ED56F28294F7C0055D332 /* GainPointViewController.swift in Sources */,
 				3FEF221528224AB9000A800B /* LogoCollectionViewCell.swift in Sources */,
 				A141AD712824199200DD2270 /* UserCoreDataStore.swift in Sources */,
 				3F55C03528261522005CE11B /* SmallLogoButton.swift in Sources */,

@@ -98,7 +98,7 @@ extension LogoCollectionViewController: UICollectionViewDataSource
             for: indexPath
         ) as! LogoCollectionViewCell
         
-        cell.image = UIImage(named: data.imageUrl)
+        cell.image = UIImage(named: data.guessImageName)
         cell.indicatorImageView.tintColor = .appGreen2
         cell.indicatorImageView.isHidden = !isAnswered
     

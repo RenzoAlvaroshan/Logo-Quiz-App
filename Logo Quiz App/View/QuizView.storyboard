@@ -97,13 +97,13 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jgI-4s-PE4">
-                                <rect key="frame" x="0.0" y="162" width="390" height="682"/>
+                                <rect key="frame" x="0.0" y="157" width="390" height="687"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TELKOM" translatesAutoresizingMaskIntoConstraints="NO" id="cwq-fH-x9B">
-                                        <rect key="frame" x="47.666666666666657" y="0.0" width="295" height="295"/>
+                                        <rect key="frame" x="55" y="0.0" width="280" height="280"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="295" id="XLD-Vi-55B"/>
-                                            <constraint firstAttribute="width" constant="295" id="tHO-Xo-GNH"/>
+                                            <constraint firstAttribute="height" constant="280" id="XLD-Vi-55B"/>
+                                            <constraint firstAttribute="width" constant="280" id="tHO-Xo-GNH"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -114,13 +114,16 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kIf-O3-Wee">
-                                        <rect key="frame" x="32" y="319" width="326" height="22"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Insert Your Guess Here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kIf-O3-Wee">
+                                        <rect key="frame" x="32" y="304" width="326" height="26"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="26" id="m7l-uU-ucC"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartQuotesType="no"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GKw-hz-hm5">
-                                        <rect key="frame" x="96" y="353" width="198" height="1"/>
+                                        <rect key="frame" x="96" y="338" width="198" height="1"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="GVe-q9-JlJ"/>
@@ -128,7 +131,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j7w-6o-KYL">
-                                        <rect key="frame" x="350.66666666666669" y="132.66666666666669" width="30" height="30"/>
+                                        <rect key="frame" x="343" y="125" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="yWZ-3l-qMf"/>
                                             <constraint firstAttribute="height" constant="30" id="yzY-55-S7L"/>
@@ -142,7 +145,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8B-cJ-JTD">
-                                        <rect key="frame" x="9.6666666666666643" y="132.66666666666669" width="30" height="30"/>
+                                        <rect key="frame" x="17" y="125" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="kJd-py-Dgi"/>
                                             <constraint firstAttribute="height" constant="30" id="mLV-cr-Y26"/>
@@ -160,7 +163,7 @@
                                 <constraints>
                                     <constraint firstItem="cwq-fH-x9B" firstAttribute="leading" secondItem="g8B-cJ-JTD" secondAttribute="trailing" constant="8" id="0Au-GN-A7Y"/>
                                     <constraint firstItem="cwq-fH-x9B" firstAttribute="top" secondItem="jgI-4s-PE4" secondAttribute="top" id="CcJ-VW-hGu"/>
-                                    <constraint firstItem="GKw-hz-hm5" firstAttribute="top" secondItem="kIf-O3-Wee" secondAttribute="bottom" constant="12" id="EH7-rd-01N"/>
+                                    <constraint firstItem="GKw-hz-hm5" firstAttribute="top" secondItem="kIf-O3-Wee" secondAttribute="bottom" constant="8" id="EH7-rd-01N"/>
                                     <constraint firstItem="j7w-6o-KYL" firstAttribute="centerY" secondItem="cwq-fH-x9B" secondAttribute="centerY" id="H3N-cP-58p"/>
                                     <constraint firstItem="GKw-hz-hm5" firstAttribute="centerX" secondItem="jgI-4s-PE4" secondAttribute="centerX" id="OCS-bB-Kaj"/>
                                     <constraint firstItem="g8B-cJ-JTD" firstAttribute="centerY" secondItem="cwq-fH-x9B" secondAttribute="centerY" id="Rn1-ul-I8n"/>
@@ -180,7 +183,7 @@
                             <constraint firstItem="3XS-iA-YJl" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="18" id="HlO-WL-lIe"/>
                             <constraint firstItem="jgI-4s-PE4" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="YN9-Bc-OVp"/>
                             <constraint firstAttribute="bottom" secondItem="jgI-4s-PE4" secondAttribute="bottom" id="fI6-wC-uNW"/>
-                            <constraint firstItem="jgI-4s-PE4" firstAttribute="top" secondItem="3XS-iA-YJl" secondAttribute="bottom" constant="-50" id="jKw-rb-kMf"/>
+                            <constraint firstItem="jgI-4s-PE4" firstAttribute="top" secondItem="3XS-iA-YJl" secondAttribute="bottom" constant="-55" id="jKw-rb-kMf"/>
                             <constraint firstItem="jgI-4s-PE4" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="lWL-Tv-Erp"/>
                         </constraints>
                     </view>
