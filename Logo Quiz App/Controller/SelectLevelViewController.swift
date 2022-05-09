@@ -7,23 +7,8 @@
 
 import UIKit
 
-class SelectLevelViewController: UIViewController {
-    
-    
-    @IBOutlet weak var level1Progress: UILabel!
-    @IBOutlet weak var level1Percentage: UILabel!
-    @IBOutlet weak var level2Progress: UILabel!
-    @IBOutlet weak var level2Percentage: UILabel!
-    @IBOutlet weak var level3Progress: UILabel!
-    @IBOutlet weak var level3Percentage: UILabel!
-    @IBOutlet weak var level4Progress: UILabel!
-    @IBOutlet weak var level4Percentage: UILabel!
-    
-    @IBOutlet weak var level1Color: UIView!
-    @IBOutlet weak var level2Color: UIView!
-    @IBOutlet weak var level3Color: UIView!
-    @IBOutlet weak var level4Color: UIView!
-    
+class SelectLevelViewController: UIViewController
+{
     @IBOutlet weak var logoSolved: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -31,24 +16,18 @@ class SelectLevelViewController: UIViewController {
     
     var data: Dictionary<Int, Level> = [:]
     
-    var selectedLabel: Int = 0
+    var selectedLevel: Int = 0
+    
+    var levelControls: [LevelProgressControl] = []
     
     var store: UserCoreDataStore {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         return UserCoreDataStore(context: context)
     }
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-
-        logoSolved.layer.cornerRadius = 12
-        logoSolved.layer.masksToBounds = true
-        scrollView.layer.cornerRadius = 33
-
-        configureButtonColor(level1Color)
-        configureButtonColor(level2Color)
-        configureButtonColor(level3Color)
-        configureButtonColor(level4Color)
         
         self.title = "Select Level"
         let user = store.fetchUser()
@@ -58,44 +37,87 @@ class SelectLevelViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: view)
         
         Logo.list.forEach() { logo in
-                    var level = data[logo.level] ?? Level(title: logo.level, progress: 0, maxProgress: 0, backgroundColor: .white)
-                    let isAnswered = user?.answeredQuestions?.contains(logo.name) ?? false
-                    level.maxProgress += 1
-                    level.progress += isAnswered ? 1 : 0
-                    data[logo.level] = level
-                }
+            var level = data[logo.level] ?? Level(title: logo.level, progress: 0, maxProgress: 0, backgroundColor: .white)
+            let isAnswered = user?.answeredQuestions?.contains(logo.name) ?? false
+            level.maxProgress += 1
+            level.progress += isAnswered ? 1 : 0
+            data[logo.level] = level
+        }
         
-        level1Progress.text = data[0]?.getProgressString()
-        level1Percentage.text = data[0]?.getPercentageString()
+        let accentList: [UIColor] = [.purple, .red, .yellow]
+        var nextTopAnchor = scrollView.topAnchor
+        for levelValue in data.keys.sorted()
+        {
+            let control = LevelProgressControl()
+            
+            control.layer.cornerRadius = 12
+            control.layer.borderWidth = 1
+            control.layer.masksToBounds = true
+            
+            control.addTarget(self, action: #selector(onLevelControl(_:)), for: .touchUpInside)
+            scrollView.addSubview(control)
+            levelControls.append(control)
+            
+            control.valueMax = data[levelValue]!.maxProgress
+            control.valueNow = data[levelValue]!.progress
+            control.level    = levelValue
+            control.accentColor = accentList[levelValue % accentList.count]
+            
+            control.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                control.heightAnchor.constraint(equalToConstant: 90),
+                control.topAnchor.constraint(equalTo: nextTopAnchor, constant: 16),
+                control.leadingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.leadingAnchor, constant: 16),
+                control.trailingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.trailingAnchor, constant: -16)
+            ])
+            nextTopAnchor = control.bottomAnchor
+        }
+        scrollView.bottomAnchor.constraint(equalTo: nextTopAnchor, constant: 32).isActive = true
         
-        level2Progress.text = data[1]?.getProgressString()
-        level2Percentage.text = data[1]?.getPercentageString()
-        
-        level3Progress.text = data[2]?.getProgressString()
-        level3Percentage.text = data[2]?.getPercentageString()
- 
+        let solvedCount = data.values.reduce(0, { return Int($0.magnitude) + $1.progress })
+        logoSolved.text = "Logo solved: \(solvedCount)"
     }
     
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
     
-    @IBAction func levelButtonPressed(_ sender: UIButton) {
-        selectedLabel =  Int((sender.titleLabel?.text)!)!
+    override func viewWillDisappear(_ animated: Bool)
+    {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    @objc func onLevelControl(_ sender: LevelProgressControl)
+    {
+        selectedLevel = sender.level
         self.performSegue(withIdentifier: "goToCollection", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if (segue.identifier == "goToCollection")
         {
-            if (segue.identifier == "goToCollection")
-            {
-                guard let vc = segue.destination as? LogoCollectionViewController
-                else { return }
-                vc.selectedLevel = selectedLabel + 1
-            }
+            guard let vc = segue.destination as? LogoCollectionViewController
+            else { return }
+            vc.delegate = self
+            vc.selectedLevel = selectedLevel
         }
-
-    func configureButtonColor(_ selectColor: UIView){
-        selectColor.clipsToBounds = true
-        selectColor.layer.cornerRadius = 5
-        selectColor.layer.maskedCorners =  [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
     }
-    
+}
+
+extension SelectLevelViewController: LogoCollectionViewControllerDelegate
+{
+    func onCorrectAnswer(didAnswerItemAt level: Int)
+    {
+        let control = levelControls.first(where: { $0.level == level })
+        control?.valueNow += 1
+        
+        let totalSolvedText = logoSolved.text?.components(separatedBy: ": ")[1] ?? ""
+        let totalSolvedNow = Int(totalSolvedText) ?? 0
+        logoSolved.text = "Logo solved: \(totalSolvedNow + 1)"
+        
+    }
 }

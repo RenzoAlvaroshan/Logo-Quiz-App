@@ -7,6 +7,7 @@
 
 import UIKit
 
+@IBDesignable
 class SmallLogoButton: UIControl
 {
     @IBOutlet weak var label: UILabel!

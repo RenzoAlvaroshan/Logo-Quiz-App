@@ -2,10 +2,16 @@ import UIKit
 
 private let reuseIdentifier = "LogoCell"
 
+@objc protocol LogoCollectionViewControllerDelegate
+{
+    @objc optional func onCorrectAnswer(didAnswerItemAt level: Int)
+}
+
 class LogoCollectionViewController: UIViewController
 {
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
+    var delegate: LogoCollectionViewControllerDelegate?
     var selectedLevel: Int?
     
     var dataSource: [Logo] = []
@@ -27,14 +33,11 @@ class LogoCollectionViewController: UIViewController
     {
         super.viewDidLoad()
         self.title = "Level \(selectedLevel!)"
-
         collectionView.register(
             UINib(nibName: "LogoCollectionViewCell", bundle: nil),
             forCellWithReuseIdentifier: reuseIdentifier
         )
-        
         collectionView.collectionViewLayout = configureLayout()
-        
         dataSource = Logo.list.filter({ $0.level == selectedLevel })
     }
 
@@ -132,5 +135,6 @@ extension LogoCollectionViewController: QuizViewControllerDelegate
     func onCorrectAnswer(didAnswerItemAt indexPath: IndexPath)
     {
         collectionView.reloadItems(at: [indexPath])
+        delegate?.onCorrectAnswer?(didAnswerItemAt: selectedLevel!)
     }
 }

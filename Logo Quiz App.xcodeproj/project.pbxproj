@@ -14,6 +14,8 @@
 		3F1FC10028257B5300A2FC23 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1FC0FF28257B5300A2FC23 /* NavigationController.swift */; };
 		3F55C03528261522005CE11B /* SmallLogoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F55C03428261522005CE11B /* SmallLogoButton.swift */; };
 		3F55C0372826152D005CE11B /* SmallLogoButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F55C0362826152D005CE11B /* SmallLogoButton.xib */; };
+		3FD21F86282913B6005DB877 /* LevelProgressControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD21F85282913B6005DB877 /* LevelProgressControl.swift */; };
+		3FD21F88282913C2005DB877 /* LevelProgressControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FD21F87282913C2005DB877 /* LevelProgressControl.xib */; };
 		3FEF221128224AAA000A800B /* LogoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FEF220F28224AAA000A800B /* LogoCollectionViewCell.xib */; };
 		3FEF221228224AAA000A800B /* LogoCollection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FEF221028224AAA000A800B /* LogoCollection.storyboard */; };
 		3FEF221528224AB9000A800B /* LogoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEF221328224AB9000A800B /* LogoCollectionViewCell.swift */; };
@@ -42,6 +44,8 @@
 		3F1FC0FF28257B5300A2FC23 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		3F55C03428261522005CE11B /* SmallLogoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallLogoButton.swift; sourceTree = "<group>"; };
 		3F55C0362826152D005CE11B /* SmallLogoButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SmallLogoButton.xib; sourceTree = "<group>"; };
+		3FD21F85282913B6005DB877 /* LevelProgressControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelProgressControl.swift; sourceTree = "<group>"; };
+		3FD21F87282913C2005DB877 /* LevelProgressControl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelProgressControl.xib; sourceTree = "<group>"; };
 		3FEF220F28224AAA000A800B /* LogoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogoCollectionViewCell.xib; sourceTree = "<group>"; };
 		3FEF221028224AAA000A800B /* LogoCollection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LogoCollection.storyboard; sourceTree = "<group>"; };
 		3FEF221328224AB9000A800B /* LogoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -119,6 +123,8 @@
 				8319C1EC282025F6000AA91B /* LaunchScreen.storyboard */,
 				B5338EB8282272C700DF53A1 /* SelectLevel.storyboard */,
 				83EFEBF628240F48009B8A2A /* QuizView.storyboard */,
+				3FD21F85282913B6005DB877 /* LevelProgressControl.swift */,
+				3FD21F87282913C2005DB877 /* LevelProgressControl.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -212,6 +218,7 @@
 				8319C1E6282025F5000AA91B /* Main.storyboard in Resources */,
 				3FEF221128224AAA000A800B /* LogoCollectionViewCell.xib in Resources */,
 				3F55C0372826152D005CE11B /* SmallLogoButton.xib in Resources */,
+				3FD21F88282913C2005DB877 /* LevelProgressControl.xib in Resources */,
 				3F1FC0F8282568C800A2FC23 /* CoinView.xib in Resources */,
 				83EFEBF728240F48009B8A2A /* QuizView.storyboard in Resources */,
 				B5338EB9282272C700DF53A1 /* SelectLevel.storyboard in Resources */,
@@ -241,6 +248,7 @@
 				3F1FC0FA282568E300A2FC23 /* CoinView.swift in Sources */,
 				A141AD67282416AA00DD2270 /* Logo.swift in Sources */,
 				8319C1E9282025F5000AA91B /* Logo_Quiz_App.xcdatamodeld in Sources */,
+				3FD21F86282913B6005DB877 /* LevelProgressControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
