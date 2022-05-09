@@ -43,7 +43,7 @@ class SelectLevelViewController: UIViewController {
 
         logoSolved.layer.cornerRadius = 12
         logoSolved.layer.masksToBounds = true
-        scrollView.layer.cornerRadius = 33
+        //        scrollView.layer.cornerRadius = 33
 
         configureButtonColor(level1Color)
         configureButtonColor(level2Color)
