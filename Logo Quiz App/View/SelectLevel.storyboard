@@ -86,6 +86,11 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kIZ-5W-QcX">
+                                                <rect key="frame" x="0.0" y="87" width="358" height="5"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.53725490196078429" green="0.18431372549019609" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
@@ -125,6 +130,11 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5fY-ou-Mpp">
+                                                <rect key="frame" x="0.0" y="86" width="358" height="5"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.89803921568627454" green="0.0" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
@@ -164,6 +174,11 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JSp-sm-oPw">
+                                                <rect key="frame" x="0.0" y="87" width="358" height="5"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="1" green="0.8784313725490196" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
@@ -203,6 +218,11 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NC3-4U-kDS">
+                                                <rect key="frame" x="0.0" y="86" width="358" height="5"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.53725490200000003" green="0.1843137255" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
@@ -217,12 +237,16 @@
                     </view>
                     <navigationItem key="navigationItem" id="sVz-xP-I07"/>
                     <connections>
+                        <outlet property="level1Color" destination="kIZ-5W-QcX" id="ze9-a1-nY9"/>
                         <outlet property="level1Percentage" destination="Eah-eC-hxn" id="wOI-w0-pMk"/>
                         <outlet property="level1Progress" destination="raV-hn-njS" id="kz1-6P-FbX"/>
+                        <outlet property="level2Color" destination="5fY-ou-Mpp" id="Cey-Y1-ZZj"/>
                         <outlet property="level2Percentage" destination="kog-D2-4yg" id="k6b-ju-VX3"/>
                         <outlet property="level2Progress" destination="BTI-n7-gUN" id="TAQ-Gf-BD4"/>
+                        <outlet property="level3Color" destination="JSp-sm-oPw" id="F1K-kl-GFs"/>
                         <outlet property="level3Percentage" destination="rHe-mD-do3" id="H7P-in-gTY"/>
                         <outlet property="level3Progress" destination="QnR-Yz-kaL" id="mKC-gc-FVQ"/>
+                        <outlet property="level4Color" destination="NC3-4U-kDS" id="9GW-A7-1SC"/>
                         <outlet property="level4Percentage" destination="yWX-XC-iAC" id="WKY-pW-TsC"/>
                         <outlet property="level4Progress" destination="cTM-cp-pJ1" id="WKo-bK-oPr"/>
                         <outlet property="logoSolved" destination="HOI-nP-bkN" id="ezd-Yt-XmK"/>

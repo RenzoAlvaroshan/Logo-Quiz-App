@@ -18,8 +18,14 @@ class SelectLevelViewController: UIViewController {
     @IBOutlet weak var level3Percentage: UILabel!
     @IBOutlet weak var level4Progress: UILabel!
     @IBOutlet weak var level4Percentage: UILabel!
-    @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var level1Color: UIView!
+    @IBOutlet weak var level2Color: UIView!
+    @IBOutlet weak var level3Color: UIView!
+    @IBOutlet weak var level4Color: UIView!
+    
     @IBOutlet weak var logoSolved: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
@@ -38,6 +44,11 @@ class SelectLevelViewController: UIViewController {
         logoSolved.layer.cornerRadius = 12
         logoSolved.layer.masksToBounds = true
         scrollView.layer.cornerRadius = 33
+
+        configureButtonColor(level1Color)
+        configureButtonColor(level2Color)
+        configureButtonColor(level3Color)
+        configureButtonColor(level4Color)
         
         self.title = "Select Level"
         let user = store.fetchUser()
@@ -68,7 +79,6 @@ class SelectLevelViewController: UIViewController {
     
     @IBAction func levelButtonPressed(_ sender: UIButton) {
         selectedLabel =  Int((sender.titleLabel?.text)!)!
-//        print()
         self.performSegue(withIdentifier: "goToCollection", sender: self)
     }
     
@@ -79,19 +89,13 @@ class SelectLevelViewController: UIViewController {
                 guard let vc = segue.destination as? LogoCollectionViewController
                 else { return }
                 vc.selectedLevel = selectedLabel + 1
-//                vc.selectedLevel =   SelectLevelTable.indexPathForSelectedRow?.row
             }
         }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func configureButtonColor(_ selectColor: UIView){
+        selectColor.clipsToBounds = true
+        selectColor.layer.cornerRadius = 5
+        selectColor.layer.maskedCorners =  [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
     }
-    */
-
+    
 }
