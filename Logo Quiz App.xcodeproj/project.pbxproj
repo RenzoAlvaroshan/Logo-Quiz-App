@@ -125,6 +125,7 @@
 				3F1FC0F9282568E300A2FC23 /* CoinView.swift */,
 				3F1FC0F7282568C800A2FC23 /* CoinView.xib */,
 				3FEF221028224AAA000A800B /* LogoCollection.storyboard */,
+				3FEF221328224AB9000A800B /* LogoCollectionViewCell.swift */,
 				3FEF220F28224AAA000A800B /* LogoCollectionViewCell.xib */,
 				8319C1E4282025F5000AA91B /* Main.storyboard */,
 				8319C1EC282025F6000AA91B /* LaunchScreen.storyboard */,
@@ -142,7 +143,6 @@
 			isa = PBXGroup;
 			children = (
 				3F1FC0FD2825763E00A2FC23 /* LandingViewController.swift */,
-				3FEF221328224AB9000A800B /* LogoCollectionViewCell.swift */,
 				3FEF221428224AB9000A800B /* LogoCollectionViewController.swift */,
 				B54B6B182828375400068552 /* SelectLevelViewController.swift */,
 				83EFEBF828240FB0009B8A2A /* QuizViewController.swift */,

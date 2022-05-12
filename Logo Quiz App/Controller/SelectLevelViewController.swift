@@ -31,6 +31,7 @@ class SelectLevelViewController: UIViewController
         
         self.title = "Select Level"
         let user = store.fetchUser()
+        scrollView.delaysContentTouches = false
         
         let view = CoinView(frame: CGRect(x: 0, y: 0, width: 72, height: 27))
         view.coinValue = Int(user?.score ?? 0)
@@ -44,15 +45,19 @@ class SelectLevelViewController: UIViewController
             data[logo.level] = level
         }
         
-        let accentList: [UIColor] = [.purple, .red, .yellow]
+        let accentList: [UIColor] = [.purple, .red, .yellow, .blue, .gray, .green]
         var nextTopAnchor = scrollView.topAnchor
         for levelValue in data.keys.sorted()
         {
             let control = LevelProgressControl()
             
-            control.layer.cornerRadius = 12
-            control.layer.borderWidth = 1
-            control.layer.masksToBounds = true
+            control.layer.cornerRadius = 14
+            control.layer.shadowRadius = 3
+            control.layer.shadowOpacity = 0.4
+            control.layer.shadowColor = UIColor.gray.cgColor
+            control.layer.shadowOffset = CGSize(width: 0, height: 4)
+            control.bgView.layer.cornerRadius = 14
+            control.bgView.layer.masksToBounds = true
             
             control.addTarget(self, action: #selector(onLevelControl(_:)), for: .touchUpInside)
             scrollView.addSubview(control)
@@ -65,10 +70,10 @@ class SelectLevelViewController: UIViewController
             
             control.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                control.heightAnchor.constraint(equalToConstant: 90),
-                control.topAnchor.constraint(equalTo: nextTopAnchor, constant: 16),
-                control.leadingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.leadingAnchor, constant: 16),
-                control.trailingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.trailingAnchor, constant: -16)
+                control.heightAnchor.constraint(equalToConstant: 100),
+                control.topAnchor.constraint(equalTo: nextTopAnchor, constant: 12),
+                control.leadingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.leadingAnchor, constant: 12),
+                control.trailingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.trailingAnchor, constant: -12)
             ])
             nextTopAnchor = control.bottomAnchor
         }

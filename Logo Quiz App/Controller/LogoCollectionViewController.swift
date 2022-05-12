@@ -37,6 +37,7 @@ class LogoCollectionViewController: UIViewController
             UINib(nibName: "LogoCollectionViewCell", bundle: nil),
             forCellWithReuseIdentifier: reuseIdentifier
         )
+        collectionView.delaysContentTouches = false
         collectionView.collectionViewLayout = configureLayout()
         dataSource = Logo.list.filter({ $0.level == selectedLevel })
     }
@@ -103,17 +104,12 @@ extension LogoCollectionViewController: UICollectionViewDataSource
         cell.indicatorImageView.isHidden = !isAnswered
     
         cell.layer.cornerRadius = 8
-        cell.layer.masksToBounds = true
-        cell.layer.shadowRadius = 4
+        cell.layer.shadowRadius = 3
         cell.layer.shadowOpacity = 0.3
         cell.layer.shadowColor = UIColor.gray.cgColor
-        cell.layer.shadowOffset = CGSize(width: 0, height: 5)
-        
+        cell.layer.shadowOffset = CGSize(width: 0, height: 2)
         cell.bgView.backgroundColor = .white
-        
-        cell.bgView.layer.cornerRadius     = 8
-        // cell.bgView.layer.borderWidth      = isAnswered ? 2 : 1
-        // cell.bgView.layer.borderColor      = isAnswered ? UIColor.appAccent.cgColor : UIColor.gray.cgColor
+        cell.bgView.layer.cornerRadius = 8
         
         return cell
     }
