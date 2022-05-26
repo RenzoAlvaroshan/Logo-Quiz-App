@@ -39,6 +39,7 @@ class QuizViewController: UIViewController
     {
         super.viewDidLoad()
         self.title = "Guess The Logo"
+        textField.delegate = self
         managedUser = store.fetchUser()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: coinView)
         textField.addTarget(self, action: #selector(checkAnswer), for: .editingChanged)
@@ -181,6 +182,15 @@ class QuizViewController: UIViewController
         present(vc, animated: true)
         
         delegate?.onCorrectAnswer?(didAnswerItemAt: selectIndexPath)
+    }
+}
+
+extension QuizViewController: UITextFieldDelegate
+{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        textField.resignFirstResponder()
+        return true
     }
 }
 
