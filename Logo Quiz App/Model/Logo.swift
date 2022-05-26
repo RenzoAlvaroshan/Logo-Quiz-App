@@ -41,7 +41,7 @@ struct Logo
         Logo(name: "Garuda",        level: 3, guessImageName: "GARUDA",         answerImageName: "GARUDA_A"      ),
         Logo(name: "Gojek",         level: 3, guessImageName: "GOJEK",          answerImageName: "GOJEK_A"       ),
         Logo(name: "Gudang Garam",  level: 3, guessImageName: "GUDANG GARAM",   answerImageName: "GUDANG GARAM_A"),
-        Logo(name: "Indomeie",      level: 3, guessImageName: "INDOMIE",        answerImageName: "INDOMIE_A"     ),
+        Logo(name: "Indomie",       level: 3, guessImageName: "INDOMIE",        answerImageName: "INDOMIE_A"     ),
         Logo(name: "KAI",           level: 3, guessImageName: "KAI",            answerImageName: "KAI_A"         ),
         Logo(name: "SiCepat",       level: 3, guessImageName: "SI CEPAT",       answerImageName: "SI CEPAT_A"    ),
         Logo(name: "Teh Botol",     level: 3, guessImageName: "TEH BOTOL",      answerImageName: "TEH BOTOL_A"   ),
