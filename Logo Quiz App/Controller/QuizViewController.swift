@@ -51,6 +51,8 @@ class QuizViewController: UIViewController
         navigationButtonChecker(at: selectIndexPath, itemCount: dataSource.count)
         refreshView(at: selectIndexPath)
         refreshCoinView()
+        
+        super.overrideUserInterfaceStyle = .light
     }
     
     func refreshView(at indexPath: IndexPath)
