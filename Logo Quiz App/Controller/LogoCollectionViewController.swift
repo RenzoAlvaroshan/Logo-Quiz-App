@@ -37,6 +37,7 @@ class LogoCollectionViewController: UIViewController
             UINib(nibName: "LogoCollectionViewCell", bundle: nil),
             forCellWithReuseIdentifier: reuseIdentifier
         )
+        collectionView.backgroundColor = .white
         collectionView.delaysContentTouches = false
         collectionView.collectionViewLayout = configureLayout()
         dataSource = Logo.list.filter({ $0.level == selectedLevel })
