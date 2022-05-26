@@ -11,6 +11,8 @@
                 <outlet property="accentView" destination="rzV-Vn-feC" id="qaO-Z0-TGC"/>
                 <outlet property="bgView" destination="wpU-dy-Zi4" id="K1R-jN-tHB"/>
                 <outlet property="levelLabel" destination="xTp-lC-g3g" id="zEx-pn-5d8"/>
+                <outlet property="lockedLabel" destination="Hqy-UF-dLI" id="nPh-qj-tgu"/>
+                <outlet property="lockedView" destination="uDh-eb-qfu" id="Hga-tQ-Van"/>
                 <outlet property="percentageLabel" destination="2aL-C2-1Ic" id="8yX-EQ-HjR"/>
                 <outlet property="progressLabel" destination="210-Ir-WFo" id="rsY-nS-6n8"/>
             </connections>
@@ -48,17 +50,48 @@
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <view clipsSubviews="YES" alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uDh-eb-qfu">
+                            <rect key="frame" x="0.0" y="0.0" width="348" height="74"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="onU-KJ-WgQ">
+                                    <rect key="frame" x="164" y="17" width="20" height="20"/>
+                                    <color key="tintColor" red="0.28627450980392155" green="0.28627450980392155" blue="0.28627450980392155" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="20" id="c3o-SB-UoO"/>
+                                        <constraint firstAttribute="width" constant="20" id="tYx-yS-866"/>
+                                    </constraints>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Solve xx logos to unlock this level" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hqy-UF-dLI">
+                                    <rect key="frame" x="77" y="41" width="194.5" height="15"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                    <color key="textColor" red="0.28627450980392155" green="0.28627450980392155" blue="0.28627450980392155" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.71764705882352942" green="0.71764705882352942" blue="0.71764705882352942" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="Hqy-UF-dLI" firstAttribute="centerX" secondItem="uDh-eb-qfu" secondAttribute="centerX" id="BVk-uM-Uj2"/>
+                                <constraint firstItem="Hqy-UF-dLI" firstAttribute="top" secondItem="onU-KJ-WgQ" secondAttribute="bottom" constant="4" id="K8m-iT-4Qa"/>
+                                <constraint firstItem="onU-KJ-WgQ" firstAttribute="centerX" secondItem="uDh-eb-qfu" secondAttribute="centerX" id="UXx-r7-Zjp"/>
+                                <constraint firstItem="onU-KJ-WgQ" firstAttribute="centerY" secondItem="uDh-eb-qfu" secondAttribute="centerY" constant="-10" id="bch-8l-94n"/>
+                            </constraints>
+                        </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="210-Ir-WFo" firstAttribute="leading" secondItem="wpU-dy-Zi4" secondAttribute="leading" constant="16" id="5XE-9C-7Ye"/>
+                        <constraint firstItem="uDh-eb-qfu" firstAttribute="top" secondItem="wpU-dy-Zi4" secondAttribute="top" id="HBE-1P-V9m"/>
                         <constraint firstItem="2aL-C2-1Ic" firstAttribute="centerY" secondItem="wpU-dy-Zi4" secondAttribute="centerY" id="HT5-gb-6jP"/>
                         <constraint firstItem="rzV-Vn-feC" firstAttribute="leading" secondItem="wpU-dy-Zi4" secondAttribute="leading" id="JI7-Us-Bci"/>
+                        <constraint firstAttribute="bottom" secondItem="uDh-eb-qfu" secondAttribute="bottom" id="Kuj-df-hYS"/>
                         <constraint firstItem="210-Ir-WFo" firstAttribute="top" secondItem="xTp-lC-g3g" secondAttribute="bottom" constant="4" id="Nsg-RI-hDX"/>
                         <constraint firstAttribute="trailing" secondItem="2aL-C2-1Ic" secondAttribute="trailing" constant="16" id="RK7-X0-wvb"/>
                         <constraint firstItem="xTp-lC-g3g" firstAttribute="centerY" secondItem="wpU-dy-Zi4" secondAttribute="centerY" constant="-15" id="Yfv-gS-Van"/>
                         <constraint firstItem="xTp-lC-g3g" firstAttribute="leading" secondItem="wpU-dy-Zi4" secondAttribute="leading" constant="16" id="hhC-Jv-wks"/>
                         <constraint firstAttribute="trailing" secondItem="rzV-Vn-feC" secondAttribute="trailing" id="oxQ-g4-FQH"/>
+                        <constraint firstAttribute="trailing" secondItem="uDh-eb-qfu" secondAttribute="trailing" id="pbc-Th-9uE"/>
+                        <constraint firstItem="uDh-eb-qfu" firstAttribute="leading" secondItem="wpU-dy-Zi4" secondAttribute="leading" id="q5g-xt-t2f"/>
                         <constraint firstAttribute="bottom" secondItem="rzV-Vn-feC" secondAttribute="bottom" id="ugh-aV-QL6"/>
                     </constraints>
                 </view>
@@ -75,4 +108,7 @@
             <point key="canvasLocation" x="131.8840579710145" y="84.375"/>
         </view>
     </objects>
+    <resources>
+        <image name="lock.fill" catalog="system" width="128" height="128"/>
+    </resources>
 </document>

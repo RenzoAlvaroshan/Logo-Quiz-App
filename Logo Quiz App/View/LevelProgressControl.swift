@@ -9,6 +9,8 @@ class LevelProgressControl: UIControl
     @IBOutlet weak var percentageLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var progressLabel: UILabel!
+    @IBOutlet weak var lockedView: UIView!
+    @IBOutlet weak var lockedLabel: UILabel!
     
     @IBInspectable var accentColor: UIColor! { didSet {
         accentView.backgroundColor = accentColor
@@ -28,6 +30,10 @@ class LevelProgressControl: UIControl
         let percentage = valueMax == 0 ? 100.0 : 100.0 * Double(valueNow) / Double(valueMax)
         percentageLabel.text = String(format: "%0.0f%%", percentage)
         progressLabel.text = String(format: "%d/%d", valueNow, valueMax)
+    }}
+    
+    @IBInspectable var requirementLogoSolved: Int = 0 { didSet {
+        lockedLabel.text = "Solved \(requirementLogoSolved) logos to unlock this level";
     }}
     
     override init(frame: CGRect)

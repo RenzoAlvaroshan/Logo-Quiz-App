@@ -14,10 +14,7 @@ class SelectLevelViewController: UIViewController
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
-    var data: Dictionary<Int, Level> = [:]
-    
     var selectedLevel: Int = 0
-    
     var levelControls: [LevelProgressControl] = []
     
     var store: UserCoreDataStore {
@@ -36,6 +33,8 @@ class SelectLevelViewController: UIViewController
         let view = CoinView(frame: CGRect(x: 0, y: 0, width: 72, height: 27))
         view.coinValue = Int(user?.score ?? 0)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: view)
+        
+        var data: Dictionary<Int, Level> = [:]
         
         Logo.list.forEach() { logo in
             var level = data[logo.level] ?? Level(title: logo.level, progress: 0, maxProgress: 0, backgroundColor: .white)
@@ -63,9 +62,9 @@ class SelectLevelViewController: UIViewController
             scrollView.addSubview(control)
             levelControls.append(control)
             
-            control.valueMax = data[levelValue]!.maxProgress
-            control.valueNow = data[levelValue]!.progress
-            control.level    = levelValue
+            control.valueMax    = data[levelValue]!.maxProgress
+            control.valueNow    = data[levelValue]!.progress
+            control.level       = levelValue
             control.accentColor = accentList[levelValue % accentList.count]
             
             control.translatesAutoresizingMaskIntoConstraints = false
@@ -79,14 +78,29 @@ class SelectLevelViewController: UIViewController
         }
         scrollView.bottomAnchor.constraint(equalTo: nextTopAnchor, constant: 32).isActive = true
         
-        let solvedCount = data.values.reduce(0, { return Int($0.magnitude) + $1.progress })
-        logoSolved.text = "Logo solved: \(solvedCount)"
+        // add level requirement
+        let requirementEachLevel    = 0.7
+        var requirementLogoSolved   = 0
+        for control in levelControls
+        {
+            control.requirementLogoSolved = requirementLogoSolved
+            requirementLogoSolved += Int(Double(control.valueMax) * requirementEachLevel)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool)
     {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        let solvedCount = levelControls.reduce(0, { return $0 + $1.valueNow })
+        logoSolved.text = "Logo solved: \(solvedCount)"
+        
+        levelControls.forEach {
+            let isUnlocked = solvedCount >= $0.requirementLogoSolved
+            $0.lockedView.isHidden = isUnlocked
+            $0.isEnabled = isUnlocked
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool)
@@ -117,12 +131,7 @@ extension SelectLevelViewController: LogoCollectionViewControllerDelegate
 {
     func onCorrectAnswer(didAnswerItemAt level: Int)
     {
-        let control = levelControls.first(where: { $0.level == level })
-        control?.valueNow += 1
-        
-        let totalSolvedText = logoSolved.text?.components(separatedBy: ": ")[1] ?? ""
-        let totalSolvedNow = Int(totalSolvedText) ?? 0
-        logoSolved.text = "Logo solved: \(totalSolvedNow + 1)"
-        
+        let control = levelControls.first(where: { $0.level == level })!
+        control.valueNow += 1
     }
 }
