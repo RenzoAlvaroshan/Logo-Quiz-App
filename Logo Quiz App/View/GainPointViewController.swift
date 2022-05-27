@@ -1,7 +1,16 @@
 import UIKit
 
+protocol GainPointViewControllerDelegate: AnyObject {
+    func onNextButton()
+    func onCloseButton()
+}
+
 class GainPointViewController: UIViewController
 {
+    var dataSource: [Logo]!
+    
+    weak var delegate: GainPointViewControllerDelegate?
+    
     @IBOutlet weak var coinLabel: UILabel!
     
     var coinValue: Int = 10

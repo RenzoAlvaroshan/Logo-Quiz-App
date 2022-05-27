@@ -41,7 +41,7 @@
                     <state key="normal" title="Close">
                         <color key="titleColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
-                    <buttonConfiguration key="configuration" style="filled" title="Close">
+                    <buttonConfiguration key="configuration" style="filled" title="Next">
                         <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
                         <color key="baseForegroundColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="baseBackgroundColor" red="0.96862745100000003" green="0.80784313730000001" blue="0.4549019608" alpha="1" colorSpace="calibratedRGB"/>
