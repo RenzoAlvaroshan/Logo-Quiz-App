@@ -79,12 +79,33 @@
                                             <constraint firstAttribute="height" constant="32" id="wNd-rw-D2S"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Universitas Gajah Mada" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRn-mB-5Ob">
-                                        <rect key="frame" x="107.66666666666667" y="36" width="174.66666666666663" height="19.333333333333329"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                        <color key="textColor" red="0.28627450980000002" green="0.28627450980000002" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t3O-lZ-RSQ">
+                                        <rect key="frame" x="86" y="29" width="218" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Hint" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRn-mB-5Ob">
+                                                <rect key="frame" x="12" y="10" width="194" height="20"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                <color key="textColor" red="0.28627450980000002" green="0.28627450980000002" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="XRn-mB-5Ob" firstAttribute="centerX" secondItem="t3O-lZ-RSQ" secondAttribute="centerX" priority="750" id="8vA-Zj-Ma9"/>
+                                            <constraint firstAttribute="height" constant="44" id="Qu4-z5-2EE"/>
+                                            <constraint firstAttribute="trailing" secondItem="XRn-mB-5Ob" secondAttribute="trailing" constant="12" id="eUT-WQ-LxQ"/>
+                                            <constraint firstItem="XRn-mB-5Ob" firstAttribute="width" secondItem="t3O-lZ-RSQ" secondAttribute="width" priority="250" id="jdO-na-Rac"/>
+                                            <constraint firstItem="XRn-mB-5Ob" firstAttribute="centerY" secondItem="t3O-lZ-RSQ" secondAttribute="centerY" constant="-2" id="qDK-Bs-F19"/>
+                                            <constraint firstItem="XRn-mB-5Ob" firstAttribute="leading" secondItem="t3O-lZ-RSQ" secondAttribute="leading" constant="12" id="sPo-HN-fi2"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="14"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </scrollView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -93,10 +114,11 @@
                                     <constraint firstAttribute="trailing" secondItem="xkc-as-YPE" secondAttribute="trailing" constant="18" id="Szc-B5-dnf"/>
                                     <constraint firstItem="0GQ-NJ-25q" firstAttribute="leading" secondItem="3XS-iA-YJl" secondAttribute="leading" constant="18" id="TSd-sB-Ic6"/>
                                     <constraint firstItem="CDN-Ss-6Uc" firstAttribute="top" secondItem="3XS-iA-YJl" secondAttribute="top" constant="28" id="YXc-Fh-YqM"/>
-                                    <constraint firstItem="XRn-mB-5Ob" firstAttribute="top" secondItem="3XS-iA-YJl" secondAttribute="top" constant="36" id="fWd-z8-Kmd"/>
+                                    <constraint firstItem="t3O-lZ-RSQ" firstAttribute="top" secondItem="3XS-iA-YJl" secondAttribute="top" constant="24" id="fek-Av-6nx"/>
+                                    <constraint firstItem="t3O-lZ-RSQ" firstAttribute="leading" secondItem="0GQ-NJ-25q" secondAttribute="trailing" constant="18" id="grz-tG-dT7"/>
                                     <constraint firstItem="xkc-as-YPE" firstAttribute="top" secondItem="3XS-iA-YJl" secondAttribute="top" constant="20" id="hcI-UP-kgC"/>
+                                    <constraint firstItem="xkc-as-YPE" firstAttribute="leading" secondItem="t3O-lZ-RSQ" secondAttribute="trailing" constant="18" id="lJR-T5-PAh"/>
                                     <constraint firstItem="CDN-Ss-6Uc" firstAttribute="centerX" secondItem="3XS-iA-YJl" secondAttribute="centerX" id="xSA-xE-yqm"/>
-                                    <constraint firstItem="XRn-mB-5Ob" firstAttribute="centerX" secondItem="3XS-iA-YJl" secondAttribute="centerX" id="zcm-Aw-GTb"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -199,6 +221,7 @@
                     <connections>
                         <outlet property="hintButton" destination="xkc-as-YPE" id="O3X-le-V9Q"/>
                         <outlet property="hintLabel" destination="XRn-mB-5Ob" id="0I0-K4-K6t"/>
+                        <outlet property="hintScrollView" destination="t3O-lZ-RSQ" id="W1Q-Sd-jZ2"/>
                         <outlet property="imageView" destination="cwq-fH-x9B" id="f7n-26-dPI"/>
                         <outlet property="nextButton" destination="j7w-6o-KYL" id="j8w-yy-YCC"/>
                         <outlet property="prevButton" destination="g8B-cJ-JTD" id="z5X-3g-49C"/>

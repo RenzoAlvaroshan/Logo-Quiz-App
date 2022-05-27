@@ -19,6 +19,7 @@ class QuizViewController: UIViewController
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var prevButton: UIButton!
     @IBOutlet weak var hintLabel: UILabel!
+    @IBOutlet weak var hintScrollView: UIScrollView!
     
     weak var delegate: QuizViewControllerDelegate?
     
@@ -49,6 +50,7 @@ class QuizViewController: UIViewController
         textField.addTarget(self, action: #selector(checkAnswer), for: .editingChanged)
         
         imageView.layer.borderColor = UIColor.lightGray.cgColor
+        hintScrollView.layer.borderColor = UIColor.appAccent2.cgColor
         
         navigationButtonChecker(at: selectIndexPath, itemCount: dataSource.count)
         refreshView(at: selectIndexPath)
@@ -167,12 +169,13 @@ class QuizViewController: UIViewController
         
         if (isAnswered || stringHint.fullyHidden() || stringHint.fullyRevealed())
         {
-            hintLabel.text = nil
+            hintScrollView.isHidden = true
         }
         else
         {
+            hintScrollView.isHidden = false
             hintLabel.text = String(stringHint.hint)
-            hintLabel.addCharacterSpacing(kernValue: 4)
+            hintLabel.addCharacterSpacing(kernValue: 5)
         }
         
         return stringHint
