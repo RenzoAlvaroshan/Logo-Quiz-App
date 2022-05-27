@@ -201,6 +201,14 @@ class QuizViewController: UIViewController
         
         let vc = GainPointViewController(nibName: "GainPointViewController", bundle: nil)
         vc.coinValue = addCoins
+        
+        // set dismiss button as "next" button if not the last logo on this level
+        if (selectIndexPath.row < dataSource.count - 1)
+        {
+            vc.dismissButtonTitle = "Next"
+            vc.delegate = self
+        }
+        
         vc.modalPresentationStyle = .custom
         vc.transitioningDelegate = self
         
@@ -311,6 +319,18 @@ extension QuizViewController: UIViewControllerTransitioningDelegate
             presentedViewController: presented,
             presenting: presenting
         )
+    }
+}
+
+extension QuizViewController: GainPointViewControllerDelegate
+{
+    func onDismissButton()
+    {
+        if (selectIndexPath.row < dataSource.count - 1)
+        {
+            selectIndexPath.row += 1
+            refreshView(at: selectIndexPath)
+        }
     }
 }
 

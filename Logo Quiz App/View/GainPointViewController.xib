@@ -9,6 +9,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GainPointViewController" customModule="Logo_Quiz_App" customModuleProvider="target">
             <connections>
                 <outlet property="coinLabel" destination="nOM-Uq-mbH" id="IlV-gr-L2B"/>
+                <outlet property="dismissButton" destination="J8G-Mk-LbF" id="OUX-sm-62b"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="JdS-SU-0bA"/>
             </connections>
         </placeholder>
@@ -41,13 +42,13 @@
                     <state key="normal" title="Close">
                         <color key="titleColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
-                    <buttonConfiguration key="configuration" style="filled" title="Next">
+                    <buttonConfiguration key="configuration" style="filled" title="Close">
                         <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
                         <color key="baseForegroundColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="baseBackgroundColor" red="0.96862745100000003" green="0.80784313730000001" blue="0.4549019608" alpha="1" colorSpace="calibratedRGB"/>
                     </buttonConfiguration>
                     <connections>
-                        <action selector="onCloseButton:" destination="-1" eventType="touchUpInside" id="lr0-lo-2qe"/>
+                        <action selector="onDismissButton:" destination="-1" eventType="touchUpInside" id="SWg-Lu-odx"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GOOD JOB!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AmJ-EC-0Kf">
