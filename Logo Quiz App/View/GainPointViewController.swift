@@ -15,8 +15,8 @@ class GainPointViewController: UIViewController
     {
         super.viewDidLoad()
         let absCoinValue = abs(coinValue)
-        if      (coinValue == 0)    { coinLabel.text = "no coins exchanged" }
-        else if (coinValue < 0)     { coinLabel.text = "- \(absCoinValue) coins" }
-        else                        { coinLabel.text = "+ \(absCoinValue) coins"}
+        if      (coinValue == 0)    { coinLabel.text = "0" }
+        else if (coinValue < 0)     { coinLabel.text = "- \(absCoinValue)" }
+        else                        { coinLabel.text = "+ \(absCoinValue)"}
     }
 }

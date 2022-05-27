@@ -12,6 +12,7 @@
 		3F1FC0FA282568E300A2FC23 /* CoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1FC0F9282568E300A2FC23 /* CoinView.swift */; };
 		3F1FC0FE2825763E00A2FC23 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1FC0FD2825763E00A2FC23 /* LandingViewController.swift */; };
 		3F1FC10028257B5300A2FC23 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1FC0FF28257B5300A2FC23 /* NavigationController.swift */; };
+		3F29E52B283FDEFC004EF497 /* StringHint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F29E52A283FDEFC004EF497 /* StringHint.swift */; };
 		3F55C03528261522005CE11B /* SmallLogoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F55C03428261522005CE11B /* SmallLogoButton.swift */; };
 		3F55C0372826152D005CE11B /* SmallLogoButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F55C0362826152D005CE11B /* SmallLogoButton.xib */; };
 		3F9ED56F28294F7C0055D332 /* GainPointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9ED56D28294F7C0055D332 /* GainPointViewController.swift */; };
@@ -45,6 +46,7 @@
 		3F1FC0F9282568E300A2FC23 /* CoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinView.swift; sourceTree = "<group>"; };
 		3F1FC0FD2825763E00A2FC23 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		3F1FC0FF28257B5300A2FC23 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		3F29E52A283FDEFC004EF497 /* StringHint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHint.swift; sourceTree = "<group>"; };
 		3F55C03428261522005CE11B /* SmallLogoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallLogoButton.swift; sourceTree = "<group>"; };
 		3F55C0362826152D005CE11B /* SmallLogoButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SmallLogoButton.xib; sourceTree = "<group>"; };
 		3F9ED56D28294F7C0055D332 /* GainPointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GainPointViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				83EFEBFA28240FCD009B8A2A /* Extensions.swift */,
 				A141AD66282416AA00DD2270 /* Logo.swift */,
 				A141AD702824199200DD2270 /* UserCoreDataStore.swift */,
+				3F29E52A283FDEFC004EF497 /* StringHint.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83EFEBF928240FB0009B8A2A /* QuizViewController.swift in Sources */,
+				3F29E52B283FDEFC004EF497 /* StringHint.swift in Sources */,
 				3F9ED57428295B5C0055D332 /* UIView+Controller+Extension.swift in Sources */,
 				3F1FC0FE2825763E00A2FC23 /* LandingViewController.swift in Sources */,
 				B54B6B192828375400068552 /* SelectLevelViewController.swift in Sources */,

@@ -18,16 +18,16 @@ class QuizViewController: UIViewController
     @IBOutlet weak var solvedInicatorView: UIView!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var prevButton: UIButton!
+    @IBOutlet weak var hintLabel: UILabel!
     
     weak var delegate: QuizViewControllerDelegate?
     
     var coinView = CoinView(frame: CGRect(x: 0, y: 0, width: 72, height: 27))
     
     var managedUser: ManagedUser?
-    var characterNumber = 0
 
     // set by previous view controller
-    var dataSource: [Logo] = []
+    var dataSource: [Logo]!
     var selectIndexPath: IndexPath!
     
     var store: UserCoreDataStore {
@@ -42,7 +42,9 @@ class QuizViewController: UIViewController
         super.viewDidLoad()
         self.title = "Guess The Logo"
         textField.delegate = self
+        
         managedUser = store.fetchUser()
+        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: coinView)
         textField.addTarget(self, action: #selector(checkAnswer), for: .editingChanged)
         
@@ -59,7 +61,9 @@ class QuizViewController: UIViewController
     {
         let data = dataSource[indexPath.row]
         let isAnswered = managedUser?.answeredQuestions?.contains(data.name) ?? false
-
+        
+        _ = refreshHintLabel(revealRandom: false, isAnswered: isAnswered)
+        
         imageView.image = UIImage(named: isAnswered ? data.answerImageName : data.guessImageName)
         solvedInicatorView.isHidden = !isAnswered
         solveButton.isEnabled = !isAnswered
@@ -113,16 +117,7 @@ class QuizViewController: UIViewController
         if (userCoins >= costs)
         {
             alert.message = "Would you like to solve this logo? This costs you: \(costs) coins"
-            alert.addAction(UIAlertAction(title: "Solve", style: .default) { [self] _ in
-                let data = dataSource[selectIndexPath.row]
-                
-                if characterNumber == 0 {
-                    textField.text = data.name[characterNumber]
-                } else {
-                    textField.text! += data.name[characterNumber]
-                }
-                
-                checkAnswer()
+            alert.addAction(UIAlertAction(title: "Solve", style: .default) { [unowned self] _ in
                 onCorrectAnswer(addCoins: -(costs))
                 refreshCoinView()
             })
@@ -133,7 +128,7 @@ class QuizViewController: UIViewController
     
     @IBAction func onHintButton(_ sender: SmallLogoButton)
     {
-        let costs       = 10
+        let costs       = 5
         let userCoins   = Int(managedUser?.score ?? 0)
         let deficit     = costs - userCoins
         
@@ -147,16 +142,40 @@ class QuizViewController: UIViewController
         if (userCoins >= costs)
         {
             alert.message = "Would you like to reveal a letter? This costs you: \(costs) coins"
-            alert.addAction(UIAlertAction(title: "Hint", style: .default) { [self] _ in
-                let data = dataSource[selectIndexPath.row]
-                textField.text = data.name[0]
-                checkAnswer()
-                store.addUserScore(amount: -(costs))
+            alert.addAction(UIAlertAction(title: "Hint", style: .default) { [unowned self] _ in
+                let stringHint = refreshHintLabel(revealRandom: true, isAnswered: false)
+                store.addHint(stringHint)
+                stringHint.fullyRevealed() ? onCorrectAnswer(addCoins: -(costs)) : store.addUserScore(amount: -(costs))
                 refreshCoinView()
             })
         }
         
         present(alert, animated: true)
+    }
+    
+    func refreshHintLabel(revealRandom: Bool, isAnswered: Bool) -> StringHint
+    {
+        let i           = selectIndexPath.row
+        let logoName    = dataSource[i].name
+        let hintString  = managedUser?.hint?[logoName]
+        let stringHint  = StringHint(logoName, hintString: hintString)
+        
+        if (revealRandom)
+        {
+            stringHint.revealRandom()
+        }
+        
+        if (isAnswered || stringHint.fullyHidden() || stringHint.fullyRevealed())
+        {
+            hintLabel.text = nil
+        }
+        else
+        {
+            hintLabel.text = String(stringHint.hint)
+            hintLabel.addCharacterSpacing(kernValue: 4)
+        }
+        
+        return stringHint
     }
     
     @objc func checkAnswer()
@@ -171,6 +190,9 @@ class QuizViewController: UIViewController
         let data = dataSource[selectIndexPath.row]
         store.addUserScore(amount: addCoins)
         store.addAnsweredQuestion(data.name)
+        
+        hintLabel.text = nil
+        
         refreshView(at: selectIndexPath)
         refreshCoinView()
         
@@ -286,5 +308,16 @@ extension QuizViewController: UIViewControllerTransitioningDelegate
             presentedViewController: presented,
             presenting: presenting
         )
+    }
+}
+
+extension UILabel
+{
+    func addCharacterSpacing(kernValue: Double = 1.15)
+    {
+        guard let text = text, !text.isEmpty else { return }
+        let string = NSMutableAttributedString(string: text)
+        string.addAttribute(NSAttributedString.Key.kern, value: kernValue, range: NSRange(location: 0, length: string.length - 1))
+        attributedText = string
     }
 }
