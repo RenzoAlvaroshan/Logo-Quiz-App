@@ -6,4 +6,4 @@ A logo quiz app built using Swift, UIKit, and already uploaded to the appstore.
 🛠 Feature: Save data, animation  
 🔌 Tools: CoreData, UIKit  
 
-🍎 Appstore: https://apps.apple.com/id/app/logopedia/id1626268760
+🍎 App Store: https://apps.apple.com/id/app/logopedia/id1626268760
